@@ -67,9 +67,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Contexts\PreciousGameContext.cs" />
+    <Compile Include="Entities\Evaluation.cs" />
+    <Compile Include="Entities\Experience.cs" />
     <Compile Include="Entities\Game.cs" />
     <Compile Include="Entities\Editor.cs" />
     <Compile Include="Entities\Kind.cs" />
+    <Compile Include="EntityMappings\EditorFluent.cs" />
+    <Compile Include="EntityMappings\EvaluationFluent.cs" />
+    <Compile Include="EntityMappings\ExperienceFluent.cs" />
+    <Compile Include="EntityMappings\GameFluent.cs" />
+    <Compile Include="EntityMappings\KindFluent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

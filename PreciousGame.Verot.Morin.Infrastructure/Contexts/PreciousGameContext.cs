@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,7 +20,7 @@ namespace PreciousGame.Verot.Morin.Infrastructure.Contexts
 
         public PreciousGameContext()
         {
-            //
+
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -27,11 +28,13 @@ namespace PreciousGame.Verot.Morin.Infrastructure.Contexts
             base.OnModelCreating(modelBuilder);
             //modelBuilder.HasDefaultSchema("dbo");
 
-            modelBuilder.Configurations.Add(new EditorFluent());
+            modelBuilder.Configurations.AddFromAssembly(Assembly.GetExecutingAssembly());
+
+            /*modelBuilder.Configurations.Add(new EditorFluent());
             modelBuilder.Configurations.Add(new EvaluationFluent());
             modelBuilder.Configurations.Add(new ExperienceFluent());
             modelBuilder.Configurations.Add(new GameFluent());
-            modelBuilder.Configurations.Add(new KindFluent());
+            modelBuilder.Configurations.Add(new KindFluent());*/
         }
     }
 }
