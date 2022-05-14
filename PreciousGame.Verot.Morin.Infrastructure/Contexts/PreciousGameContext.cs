@@ -18,7 +18,7 @@ namespace PreciousGame.Verot.Morin.Infrastructure.Contexts
         public DbSet<Game> Games { get; set; }
         public DbSet<Kind> Kinds { get; set; }
 
-        public PreciousGameContext()
+        public PreciousGameContext() : base("name=PreciousGameContext")
         {
 
         }

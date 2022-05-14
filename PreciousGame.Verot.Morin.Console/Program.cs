@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PreciousGame.Verot.Morin.Infrastructure.Contexts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,17 @@ namespace PreciousGame.Verot.Morin.Console
     {
         static void Main(string[] args)
         {
+            try
+            {
+                PreciousGameContext pg = new PreciousGameContext();
+                pg.Games.ToList();
+
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
         }
     }
 }
