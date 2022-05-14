@@ -1,6 +1,7 @@
 ﻿using PreciousGame.Verot.Morin.Infrastructure.Contexts;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,8 @@ namespace PreciousGame.Verot.Morin.Console
             try
             {
                 PreciousGameContext pg = new PreciousGameContext();
-                pg.Games.ToList();
+                var list = pg.Editors.ToList();
+                System.Console.WriteLine(list.Count);
 
             }
             catch (Exception e)
