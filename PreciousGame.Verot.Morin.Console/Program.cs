@@ -1,10 +1,10 @@
-﻿using PreciousGame.Verot.Morin.Infrastructure.Contexts;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PreciousGame.Verot.Morin.BusinessLayer.Managers;
 
 namespace PreciousGame.Verot.Morin.Console
 {
@@ -14,10 +14,8 @@ namespace PreciousGame.Verot.Morin.Console
         {
             try
             {
-                PreciousGameContext pg = new PreciousGameContext();
-                var list = pg.Editors.ToList();
+                var list = Manager.Instance.GetAllGames();
                 System.Console.WriteLine(list.Count);
-
             }
             catch (Exception e)
             {
