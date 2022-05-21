@@ -29,6 +29,11 @@ namespace PreciousGames.Verot.Morin.BusinessLayer.Managers
             }
         }
 
+        public void SaveChanges()
+        {
+            _preciousGameContext.SaveChanges();
+        }
+
         #region Games
 
         public List<Game> GetAllGames()

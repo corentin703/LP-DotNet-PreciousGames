@@ -1,5 +1,7 @@
 ﻿using System;
+using System.IO;
 using PreciousGames.Verot.Morin.BusinessLayer.Managers;
+using PreciousGames.Verot.Morin.ModelLayer.Entities;
 
 namespace PreciousGames.Verot.Morin.Console
 {
@@ -7,9 +9,34 @@ namespace PreciousGames.Verot.Morin.Console
     {
         static void Main(string[] args)
         {
+            DirectoryInfo dataDirectoryInfo = new DirectoryInfo("../../../Infrastructure/ModelLayer/App_Data");
+            AppDomain.CurrentDomain.SetData("DataDirectory", dataDirectoryInfo.FullName);
+
             try
             {
+                Kind kind = new Kind()
+                {
+                    Name = "RPG",
+                };
+
+                Editor editor = new Editor()
+                {
+                    Name = "Bethesda",
+                };
+
+                Game game = new Game()
+                {
+                    Editor = editor,
+                    Name = "The Elder Scrolls",
+                    Description = "Super jeu monde ouvert",
+                    Kind = kind,
+                    ReleaseDate = DateTime.Now.AddYears(-5),
+                };
+
+                Manager.Instance.AddGame(game);
+
                 var list = Manager.Instance.GetAllGames();
+
                 System.Console.WriteLine(list.Count);
             }
             catch (Exception e)
