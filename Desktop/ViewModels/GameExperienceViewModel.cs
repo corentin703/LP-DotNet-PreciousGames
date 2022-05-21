@@ -9,37 +9,46 @@ namespace Desktop.ViewModels
     {
         private readonly Experience _experience;
 
+        private string _player;
+        private string _playedTime;
+        private int _percentage;
+
         public GameExperienceViewModel(Experience experience)
         {
             _experience = experience;
+
+            _player = experience.Player;
+            _playedTime = experience.PlayedTime.ToString("hh\\:mm\\:ss", CultureInfo.CurrentUICulture);
+            _percentage = (int)experience.Percentage * 100;
         }
 
         public string Player
         {
-            get => _experience.Player;
+            get => _player;
             set
             {
-                _experience.Player = value;
+                _player = value;
                 OnPropertyChanged(nameof(Player));
             }
         }
 
         public string PlayedTime
         {
-            get => _experience.PlayedTime.ToString("hh\\:mm\\:ss", CultureInfo.CurrentUICulture);
+            get => _playedTime;
             set
             {
-                _experience.PlayedTime = TimeSpan.Parse(value, CultureInfo.CurrentUICulture);
+                //_experience.PlayedTime = TimeSpan.Parse(value, CultureInfo.CurrentUICulture);
+                _playedTime = value;
                 OnPropertyChanged(nameof(PlayedTime));
             }
         }
 
-        public float Percentage
+        public int Percentage
         {
-            get => _experience.Percentage;
+            get => _percentage;
             set
             {
-                _experience.Percentage = value;
+                _percentage = value;
                 OnPropertyChanged(nameof(Percentage));
             }
         }

@@ -3,24 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Desktop"
         xmlns:views="clr-namespace:Desktop.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <!-- Définition du gridLayout -->
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50px"></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <DockPanel Grid.ColumnSpan="2" Background="DarkGoldenrod">
-            <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" FontSize="26" Foreground="White">PreciousGames</Label>
-        </DockPanel>
+        Title="Precious Games" Height="450" Width="800">
+    <DockPanel LastChildFill="True">
+        <Label DockPanel.Dock="Top" VerticalAlignment="Center" HorizontalAlignment="Left" FontWeight="Bold" FontSize="20">Precious Games</Label>
         <views:GameList Grid.Column="0" Grid.Row="1"  DataContext="{Binding GameListViewModel}"></views:GameList>
-        
-    </Grid>
+    </DockPanel>
 </Window>

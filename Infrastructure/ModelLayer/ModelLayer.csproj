@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contexts\PreciousGameContext.cs" />
+    <Compile Include="Entities\Common\BaseEntity.cs" />
     <Compile Include="Entities\Evaluation.cs" />
     <Compile Include="Entities\Experience.cs" />
     <Compile Include="Entities\Game.cs" />

@@ -18,8 +18,7 @@ namespace Desktop.ViewModels
                     .Select(game => new GameDetailsViewModel(game))
             );
 
-            if (_games != null && _games.Count > 0)
-                _selectedGame = _games.ElementAt(0);
+            _selectedGame = _games?.FirstOrDefault();
         }
 
         #region Bindings

@@ -1,10 +1,10 @@
 ﻿using System;
+using PreciousGames.Verot.Morin.ModelLayer.Entities.Common;
 
 namespace PreciousGames.Verot.Morin.ModelLayer.Entities
 {
-    public class Experience
+    public class Experience : BaseEntity
     {
-        public int Id { get; set; }
         public string Player { get; set; }
         public TimeSpan PlayedTime { get; set; }
         public float Percentage { get; set; }

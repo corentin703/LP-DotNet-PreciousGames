@@ -9,12 +9,16 @@ namespace PreciousGames.Verot.Morin.BusinessLayer.Managers
     public class BusinessManager : IDisposable
     {
         private readonly PreciousGameContext _preciousGameContext;
-        private readonly GamesQuery _gamesQuery;
+        private readonly GamesQueries _gamesQueries;
+        private readonly KindsQueries _kindsQueries;
+        private readonly EditorsQueries _editorsQueries;
 
         private BusinessManager()
         {
             _preciousGameContext = new PreciousGameContext();
-            _gamesQuery = new GamesQuery(_preciousGameContext);
+            _gamesQueries = new GamesQueries(_preciousGameContext);
+            _kindsQueries = new KindsQueries(_preciousGameContext);
+            _editorsQueries = new EditorsQueries(_preciousGameContext);
         }
 
         private static BusinessManager _instance;
@@ -38,27 +42,85 @@ namespace PreciousGames.Verot.Morin.BusinessLayer.Managers
 
         public List<Game> GetAllGames()
         {
-            return _gamesQuery.GetAll();
+            return _gamesQueries.GetAll();
         }
 
         public Game GetGameById(int id)
         {
-            return _gamesQuery.GetById(id);
+            return _gamesQueries.GetById(id);
         }
 
         public Game AddGame(Game game)
         {
-            return _gamesQuery.Add(game);
+            return _gamesQueries.Add(game);
         }
 
         public void UpdateGame(Game game)
         {
-            _gamesQuery.Update(game);
+            _gamesQueries.Update(game);
         }
 
         public void DeleteGame(int id)
         {
-            _gamesQuery.Delete(id);
+            _gamesQueries.Delete(id);
+        }
+
+        #endregion
+
+        #region Kinds
+
+        public List<Kind> GetAllKinds()
+        {
+            return _kindsQueries.GetAll();
+        }
+
+        public Kind GetKindById(int id)
+        {
+            return _kindsQueries.GetById(id);
+        }
+
+        public Kind AddKind(Kind kind)
+        {
+            return _kindsQueries.Add(kind);
+        }
+
+        public void UpdateKind(Kind kind)
+        {
+            _kindsQueries.Update(kind);
+        }
+
+        public void DeleteKind(int id)
+        {
+            _kindsQueries.Delete(id);
+        }
+
+        #endregion
+
+        #region Editors
+
+        public List<Editor> GetAllEditors()
+        {
+            return _editorsQueries.GetAll();
+        }
+
+        public Editor GetEditorById(int id)
+        {
+            return _editorsQueries.GetById(id);
+        }
+
+        public Editor AddEditor(Editor editor)
+        {
+            return _editorsQueries.Add(editor);
+        }
+
+        public void UpdateEditor(Editor editor)
+        {
+            _editorsQueries.Update(editor);
+        }
+
+        public void DeleteEditor(int id)
+        {
+            _editorsQueries.Delete(id);
         }
 
         #endregion

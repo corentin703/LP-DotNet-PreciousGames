@@ -1,10 +1,10 @@
 ﻿using System;
+using PreciousGames.Verot.Morin.ModelLayer.Entities.Common;
 
 namespace PreciousGames.Verot.Morin.ModelLayer.Entities
 {
-    public class Evaluation
+    public class Evaluation : BaseEntity
     {
-        public int Id { get; set; }
         public string EvaluatorName { get; set; }
         public DateTime Date { get; set; }
         public float Mark { get; set; }

@@ -9,9 +9,13 @@ namespace Desktop.ViewModels
 {
     public class GameDetailsViewModel : BaseViewModel
     {
-        private Game _model;
+        private readonly Game _model;
 
+        private string _name;
+        private string _description;
+        private DateTime? _releaseDate;
         private GameEditorViewModel _editor;
+        private GameKindViewModel _kind;
         private ObservableCollection<GameExperienceViewModel> _experiences;
         private ObservableCollection<GameEvaluationViewModel> _evaluations;
 
@@ -19,7 +23,12 @@ namespace Desktop.ViewModels
         {
             _model = model;
 
+            _name = model.Name;
+            _description = model.Description;
+            _releaseDate = model.ReleaseDate;
+
             _editor = new GameEditorViewModel(model.Editor);
+            _kind = new GameKindViewModel(model.Kind);
 
             _evaluations = new ObservableCollection<GameEvaluationViewModel>(
                 model.Evaluations
@@ -37,31 +46,53 @@ namespace Desktop.ViewModels
 
         public string Name
         {
-            get => _model.Name;
+            get => _name;
             set
             {
-                _model.Name = value;
+                _name = value;
                 OnPropertyChanged(nameof(Name));
             }
         }
 
         public string Description
         {
-            get => _model.Description;
+            get => _description;
             set
             {
-                _model.Description = value;
+                _description = value;
                 OnPropertyChanged(nameof(Description));
             }
         }
 
-        public string ReleaseDate
+        public DateTime? ReleaseDate
         {
-            get => _model.ReleaseDate.ToString("d", CultureInfo.CurrentUICulture);
+            get => _releaseDate;
             set
             {
-                _model.ReleaseDate = DateTime.Parse(value, CultureInfo.CurrentUICulture);
+                _releaseDate = value;
                 OnPropertyChanged(nameof(ReleaseDate));
+            }
+        }
+
+        public string ReleaseDateDisplayString => _releaseDate?.ToString("d", CultureInfo.CurrentUICulture);
+
+        public GameEditorViewModel Editor
+        {
+            get => _editor;
+            set
+            {
+                _editor = value;
+                OnPropertyChanged(nameof(Editor));
+            }
+        }
+
+        public GameKindViewModel Kind
+        {
+            get => _kind;
+            set
+            {
+                _kind = value;
+                OnPropertyChanged(nameof(Kind));
             }
         }
 

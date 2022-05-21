@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
+using PreciousGames.Verot.Morin.ModelLayer.Entities.Common;
 
 namespace PreciousGames.Verot.Morin.ModelLayer.Entities
 {
-    public class Kind
+    public class Kind : BaseEntity
     {
-        public int Id { get; set; }
-
         public string Name { get; set; }
 
         public ICollection<Game> Games { get; set; }

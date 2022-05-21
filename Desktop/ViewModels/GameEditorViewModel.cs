@@ -1,24 +1,46 @@
 ﻿using Desktop.ViewModels.Common;
+using PreciousGames.Verot.Morin.BusinessLayer.Managers;
 using PreciousGames.Verot.Morin.ModelLayer.Entities;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace Desktop.ViewModels
 {
     public class GameEditorViewModel : BaseViewModel
     {
-        private readonly Editor _editor;
+        private readonly Editor _model;
 
-        public GameEditorViewModel(Editor editor)
+        private string _selectedEditor;
+        private ObservableCollection<string> _editors;
+
+        public GameEditorViewModel(Editor model)
         {
-            _editor = editor;
+            _model = model;
+            _selectedEditor = model.Name;
+            _editors = new ObservableCollection<string>(
+                BusinessManager.Instance.GetAllEditors()
+                    .Select(editor => editor.Name)
+                    .ToList()
+            );
         }
 
-        public string Name
+        public string SelectedEditor
         {
-            get => _editor.Name;
+            get => _selectedEditor;
             set
             {
-                _editor.Name = value;
-                OnPropertyChanged(nameof(Name));
+                _selectedEditor = value;
+                OnPropertyChanged(nameof(SelectedEditor));
+            }
+        }
+
+        public ObservableCollection<string> Editors
+        {
+            get => _editors;
+            set
+            {
+                _editors = value;
+                OnPropertyChanged(nameof(Editors));
             }
         }
     }

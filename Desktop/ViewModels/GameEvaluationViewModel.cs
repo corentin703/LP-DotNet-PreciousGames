@@ -7,39 +7,47 @@ namespace Desktop.ViewModels
 {
     public class GameEvaluationViewModel : BaseViewModel
     {
-        private readonly Evaluation _evaluation;
+        private readonly Evaluation _model;
 
-        public GameEvaluationViewModel(Evaluation evaluation)
+        private string _evaluatorName;
+        private string _date;
+        private float _mark;
+
+        public GameEvaluationViewModel(Evaluation model)
         {
-            _evaluation = evaluation;
+            _model = model;
+
+            _evaluatorName = model.EvaluatorName;
+            _date = model.Date.ToString("d", CultureInfo.CurrentUICulture);
+            _mark = model.Mark;
         }
 
         public string EvaluatorName
         {
-            get => _evaluation.EvaluatorName;
+            get => _evaluatorName;
             set
             {
-                _evaluation.EvaluatorName = value;
+                _evaluatorName = value;
                 OnPropertyChanged(nameof(EvaluatorName));
             }
         }
 
         public string Date
         {
-            get => _evaluation.Date.ToString("d", CultureInfo.CurrentUICulture);
+            get => _date;
             set
             {
-                _evaluation.Date = DateTime.Parse(value, CultureInfo.CurrentUICulture);
+                _date = value;
                 OnPropertyChanged(nameof(Date));
             }
         }
 
         public float Mark
         {
-            get => _evaluation.Mark;
+            get => _mark;
             set
             {
-                _evaluation.Mark = value;
+                _mark = value;
                 OnPropertyChanged(nameof(Mark));
             }
         }

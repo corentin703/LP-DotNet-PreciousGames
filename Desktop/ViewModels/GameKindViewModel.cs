@@ -1,31 +1,45 @@
-﻿using Desktop.ViewModels.Common;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using Desktop.ViewModels.Common;
+using PreciousGames.Verot.Morin.BusinessLayer.Managers;
 using PreciousGames.Verot.Morin.ModelLayer.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Desktop.ViewModels
 {
-    class GameKindViewModel: BaseViewModel
+    public class GameKindViewModel : BaseViewModel
     {
-        private Kind _model;
+        private readonly Kind _model;
+        private readonly List<Kind> _kindsModels;
+
+        private string _selectedKind;
+        private ObservableCollection<string> _kinds;
 
         public GameKindViewModel(Kind model)
         {
-            this._model = model;
+            _model = model;
+            _selectedKind = model.Name;
+            _kindsModels = BusinessManager.Instance.GetAllKinds();
+
         }
 
-        public string KindName
+        public string SelectedKind
         {
-            get => _model.Name;
+            get => _selectedKind;
             set
             {
-                _model.Name = value;
-                OnPropertyChanged(nameof(KindName));
+                _selectedKind = value;
+                OnPropertyChanged(nameof(SelectedKind));
             }
         }
 
+        public ObservableCollection<string> Kinds
+        {
+            get => _kinds;
+            set
+            {
+                _kinds = value;
+                OnPropertyChanged(nameof(Kinds));
+            }
+        }
     }
 }

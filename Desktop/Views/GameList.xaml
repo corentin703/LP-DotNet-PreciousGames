@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Desktop.Views"
+             xmlns:views="clr-namespace:Desktop.Views" xmlns:viewmodels="clr-namespace:Desktop.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:GameListViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="1250">
     <Grid>
@@ -16,17 +16,18 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <ListView Grid.Column="0"  Grid.Row="0" Grid.RowSpan="3" Margin="5px" ItemsSource="{Binding Games, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedGame, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+        <ListView Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" Margin="5px" ItemsSource="{Binding Games, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedGame, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="100px" Header="Nom" DisplayMemberBinding="{Binding Name}" />
                     <GridViewColumn Width="150px" Header="Description" DisplayMemberBinding="{Binding Description}" />
-                    <GridViewColumn Width="150px" Header="Date de sortie" DisplayMemberBinding="{Binding ReleaseDate}" />
+                    <GridViewColumn Width="150px" Header="Date de sortie" DisplayMemberBinding="{Binding ReleaseDateDisplayString}" />
                 </GridView>
             </ListView.View>
         </ListView>
-        <local:GameDetails Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" DataContext="{Binding SelectedGame}"></local:GameDetails>
+        <views:GameDetails Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" DataContext="{Binding SelectedGame}"></views:GameDetails>
     </Grid>
 </UserControl>
