@@ -66,9 +66,21 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModels\Common\BaseViewModel.cs" />
+    <Compile Include="ViewModels\GameEditorViewModel.cs" />
+    <Compile Include="ViewModels\GameEvaluationViewModel.cs" />
+    <Compile Include="ViewModels\GameExperienceViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\GameDetailsViewModel.cs" />
     <Compile Include="ViewModels\GameListViewModel.cs" />
+    <Compile Include="Views\GameEditor.xaml.cs">
+      <DependentUpon>GameEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GameEvaluation.xaml.cs">
+      <DependentUpon>GameEvaluation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GameExperience.xaml.cs">
+      <DependentUpon>GameExperience.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\GameList.xaml.cs">
       <DependentUpon>GameList.xaml</DependentUpon>
     </Compile>
@@ -85,6 +97,18 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\GameDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GameEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GameEvaluation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GameExperience.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
