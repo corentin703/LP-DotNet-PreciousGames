@@ -11,5 +11,13 @@ namespace Desktop.ViewModels
             _gameListViewModel = new GameListViewModel();
         }
 
+        public GameListViewModel GameListViewModel
+        {
+            get => _gameListViewModel;
+            set {
+                _gameListViewModel = value;
+                OnPropertyChanged(nameof(GameListViewModel));
+            }
+        }
     }
 }
