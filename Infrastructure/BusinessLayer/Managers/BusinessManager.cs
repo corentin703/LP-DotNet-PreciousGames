@@ -6,24 +6,24 @@ using PreciousGames.Verot.Morin.ModelLayer.Entities;
 
 namespace PreciousGames.Verot.Morin.BusinessLayer.Managers
 {
-    public class Manager : IDisposable
+    public class BusinessManager : IDisposable
     {
         private readonly PreciousGameContext _preciousGameContext;
         private readonly GamesQuery _gamesQuery;
 
-        private Manager()
+        private BusinessManager()
         {
             _preciousGameContext = new PreciousGameContext();
             _gamesQuery = new GamesQuery(_preciousGameContext);
         }
 
-        private static Manager _instance;
-        public static Manager Instance
+        private static BusinessManager _instance;
+        public static BusinessManager Instance
         {
             get
             {
                 if (_instance == null)
-                    _instance = new Manager();
+                    _instance = new BusinessManager();
 
                 return _instance;
             }

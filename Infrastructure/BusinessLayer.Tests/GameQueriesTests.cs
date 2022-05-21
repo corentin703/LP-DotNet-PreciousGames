@@ -9,7 +9,7 @@ namespace PreciousGames.Verot.Morin.BusinessLayer.Tests
         [TestMethod]
         public void GetAll()
         {
-            Assert.AreEqual(0, Manager.Instance.GetAllGames().Count);
+            Assert.AreEqual(0, BusinessManager.Instance.GetAllGames().Count);
         }
     }
 }

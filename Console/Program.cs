@@ -33,9 +33,9 @@ namespace PreciousGames.Verot.Morin.Console
                     ReleaseDate = DateTime.Now.AddYears(-5),
                 };
 
-                Manager.Instance.AddGame(game);
+                BusinessManager.Instance.AddGame(game);
 
-                var list = Manager.Instance.GetAllGames();
+                var list = BusinessManager.Instance.GetAllGames();
 
                 System.Console.WriteLine(list.Count);
             }
