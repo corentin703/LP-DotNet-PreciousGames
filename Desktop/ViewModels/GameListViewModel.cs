@@ -9,20 +9,44 @@ namespace Desktop.ViewModels
     public class GameListViewModel : BaseViewModel
     {
 
-        private readonly ObservableCollection<GameDetailsViewModel> _gameDetails;
-        private GameDetailsViewModel _selectedGameDetail;
+        private ObservableCollection<GameDetailsViewModel> _games;
+        private GameDetailsViewModel _selectedGame;
 
         public GameListViewModel()
         {
-            _gameDetails = new ObservableCollection<GameDetailsViewModel>();
+            _games = new ObservableCollection<GameDetailsViewModel>();
 
             foreach (Game game in BusinessManager.Instance.GetAllGames())
             {
-                _gameDetails.Add(new GameDetailsViewModel(game));
+                _games.Add(new GameDetailsViewModel(game));
             }
 
-            if (_gameDetails != null && _gameDetails.Count > 0)
-                _selectedGameDetail = _gameDetails.ElementAt(0);
+            if (_games != null && _games.Count > 0)
+                _selectedGame = _games.ElementAt(0);
         }
+
+        #region Bindings
+
+        public ObservableCollection<GameDetailsViewModel> Games
+        {
+            get => _games;
+            set
+            {
+                _games = value;
+                OnPropertyChanged(nameof(Games));
+            }
+        }
+
+        public GameDetailsViewModel SelectedGame
+        {
+            get => _selectedGame;
+            set
+            {
+                _selectedGame = value;
+                OnPropertyChanged(nameof(SelectedGame));
+            }
+        }
+
+        #endregion
     }
 }
