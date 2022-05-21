@@ -27,5 +27,6 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <local:GameDetails Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" DataContext="{Binding SelectedGame}"></local:GameDetails>
     </Grid>
 </UserControl>

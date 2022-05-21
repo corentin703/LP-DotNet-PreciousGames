@@ -15,8 +15,7 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <NuGetPackageImportStamp></NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -80,42 +79,52 @@
     </Compile>
     <Compile Include="Views\GameExperience.xaml.cs">
       <DependentUpon>GameExperience.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\GameList.xaml.cs">
-      <DependentUpon>GameList.xaml</DependentUpon>
-    </Compile>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="Views\GameDetails.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\GameEditor.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\GameEvaluation.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\GameExperience.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\GameList.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
+      <Compile Include="ViewModels\GameKindViewModel.cs" />
+      <Compile Include="ViewModels\HomeViewModel.cs" />
+      <Compile Include="ViewModels\GameDetailsViewModel.cs" />
+      <Compile Include="ViewModels\GameListViewModel.cs" />
+      <Compile Include="Views\GameKind.xaml.cs">
+        <DependentUpon>GameKind.xaml</DependentUpon>
+      </Compile>
+      <Compile Include="Views\GameList.xaml.cs">
+        <DependentUpon>GameList.xaml</DependentUpon>
+      </Compile>
+      <Page Include="MainWindow.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <SubType>Designer</SubType>
+      </Page>
+      <Compile Include="App.xaml.cs">
+        <DependentUpon>App.xaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Include="MainWindow.xaml.cs">
+        <DependentUpon>MainWindow.xaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Page Include="Views\GameDetails.xaml">
+        <SubType>Designer</SubType>
+        <Generator>MSBuild:Compile</Generator>
+      </Page>
+      <Page Include="Views\GameEditor.xaml">
+        <SubType>Designer</SubType>
+        <Generator>MSBuild:Compile</Generator>
+      </Page>
+      <Page Include="Views\GameEvaluation.xaml">
+        <SubType>Designer</SubType>
+        <Generator>MSBuild:Compile</Generator>
+      </Page>
+      <Page Include="Views\GameExperience.xaml">
+        <SubType>Designer</SubType>
+        <Generator>MSBuild:Compile</Generator>
+      </Page>
+      <Page Include="Views\GameKind.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <SubType>Designer</SubType>
+      </Page>
+      <Page Include="Views\GameList.xaml">
+        <SubType>Designer</SubType>
+        <Generator>MSBuild:Compile</Generator>
+      </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
