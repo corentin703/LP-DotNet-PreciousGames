@@ -18,9 +18,9 @@ namespace Desktop.Views
     /// <summary>
     /// Logique d'interaction pour GameGroupsDetails.xaml
     /// </summary>
-    public partial class GameGroupsDetails : UserControl
+    public partial class GameKind : UserControl
     {
-        public GameGroupsDetails()
+        public GameKind()
         {
             InitializeComponent();
         }

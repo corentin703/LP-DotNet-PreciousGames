@@ -66,9 +66,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModels\Common\BaseViewModel.cs" />
+    <Compile Include="ViewModels\GameKindViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\GameDetailsViewModel.cs" />
     <Compile Include="ViewModels\GameListViewModel.cs" />
+    <Compile Include="Views\GameKind.xaml.cs">
+      <DependentUpon>GameKind.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\GameList.xaml.cs">
       <DependentUpon>GameList.xaml</DependentUpon>
     </Compile>
@@ -87,6 +91,10 @@
     <Page Include="Views\GameDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GameKind.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\GameList.xaml">
       <SubType>Designer</SubType>

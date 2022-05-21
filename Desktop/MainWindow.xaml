@@ -15,10 +15,12 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <DockPanel Background="DarkGoldenrod">
+        <DockPanel Grid.ColumnSpan="2" Background="DarkGoldenrod">
             <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" FontSize="26" Foreground="White">PreciousGames</Label>
         </DockPanel>
-        <views:GameList Grid.Row="1" DataContext="{Binding GameListViewModel}"></views:GameList>
+        <views:GameList Grid.Column="0" Grid.Row="1"  DataContext="{Binding GameListViewModel}"></views:GameList>
+        
     </Grid>
 </Window>
