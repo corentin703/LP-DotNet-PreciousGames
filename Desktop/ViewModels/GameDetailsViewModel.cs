@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Globalization;
+using System.Linq;
 using Desktop.ViewModels.Common;
 using PreciousGames.Verot.Morin.ModelLayer.Entities;
 
@@ -9,9 +11,28 @@ namespace Desktop.ViewModels
     {
         private Game _model;
 
+        private GameEditorViewModel _editor;
+        private ObservableCollection<GameExperienceViewModel> _experiences;
+        private ObservableCollection<GameEvaluationViewModel> _evaluations;
+
         public GameDetailsViewModel(Game model)
         {
-            this._model = model;
+            _model = model;
+
+            _editor = new GameEditorViewModel(model.Editor);
+
+            _evaluations = new ObservableCollection<GameEvaluationViewModel>(
+                model.Evaluations
+                    .Select(evaluation => 
+                        new GameEvaluationViewModel(evaluation)
+                    )
+            );
+
+            _experiences = new ObservableCollection<GameExperienceViewModel>(
+                model.Experiences.Select(experience =>
+                    new GameExperienceViewModel(experience)
+                )
+            );
         }
 
         public string Name
@@ -41,6 +62,26 @@ namespace Desktop.ViewModels
             {
                 _model.ReleaseDate = DateTime.Parse(value, CultureInfo.CurrentUICulture);
                 OnPropertyChanged(nameof(ReleaseDate));
+            }
+        }
+
+        public ObservableCollection<GameExperienceViewModel> Experiences
+        {
+            get => _experiences;
+            set
+            {
+                _experiences = value;
+                OnPropertyChanged(nameof(Experiences));
+            }
+        }
+
+        public ObservableCollection<GameEvaluationViewModel> Evaluations
+        {
+            get => _evaluations;
+            set
+            {
+                _evaluations = value;
+                OnPropertyChanged(nameof(Evaluations));
             }
         }
     }
