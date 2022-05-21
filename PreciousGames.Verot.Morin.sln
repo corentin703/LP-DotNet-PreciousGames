@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "Infrastruc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer.Tests", "Infrastructure\BusinessLayer.Tests\BusinessLayer.Tests.csproj", "{BCF242D0-1F95-4F30-BF3D-4899D05BF1A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Desktop", "Desktop\Desktop.csproj", "{07788B65-439C-422E-9D44-4730AA0AC0F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{BCF242D0-1F95-4F30-BF3D-4899D05BF1A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCF242D0-1F95-4F30-BF3D-4899D05BF1A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCF242D0-1F95-4F30-BF3D-4899D05BF1A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07788B65-439C-422E-9D44-4730AA0AC0F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07788B65-439C-422E-9D44-4730AA0AC0F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07788B65-439C-422E-9D44-4730AA0AC0F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07788B65-439C-422E-9D44-4730AA0AC0F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
