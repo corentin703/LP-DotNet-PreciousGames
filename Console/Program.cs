@@ -34,6 +34,7 @@ namespace PreciousGames.Verot.Morin.Console
                 };
 
                 BusinessManager.Instance.AddGame(game);
+                BusinessManager.Instance.SaveChanges();
 
                 var list = BusinessManager.Instance.GetAllGames();
 

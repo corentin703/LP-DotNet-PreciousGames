@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using Desktop.ViewModels.Common;
 using PreciousGames.Verot.Morin.BusinessLayer.Managers;
 using PreciousGames.Verot.Morin.ModelLayer.Entities;
@@ -19,7 +20,6 @@ namespace Desktop.ViewModels
             _model = model;
             _selectedKind = model.Name;
             _kindsModels = BusinessManager.Instance.GetAllKinds();
-
         }
 
         public string SelectedKind
@@ -31,6 +31,8 @@ namespace Desktop.ViewModels
                 OnPropertyChanged(nameof(SelectedKind));
             }
         }
+
+        public Kind SelectedKindModel => _kindsModels.FirstOrDefault(kind => kind.Name == _selectedKind);
 
         public ObservableCollection<string> Kinds
         {

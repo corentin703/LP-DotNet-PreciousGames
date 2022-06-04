@@ -9,28 +9,31 @@ namespace PreciousGames.Verot.Morin.BusinessLayer.Queries.Common
 {
     internal abstract class BaseEntityQueries<TEntity> where TEntity : BaseEntity
     {
-        protected readonly PreciousGameContext DbContext;
-        protected readonly DbSet<TEntity> DbSet;
+        private readonly PreciousGameContext _dbContext;
+        protected PreciousGameContext DbContext => _dbContext;
+
+        private readonly DbSet<TEntity> _dbSet;
+        protected DbSet<TEntity> DbSet => _dbSet;
 
         public BaseEntityQueries(PreciousGameContext context)
         {
-            DbContext = context;
-            DbSet = context.Set<TEntity>();
+            _dbContext = context;
+            _dbSet = context.Set<TEntity>();
         }
 
         public virtual List<TEntity> GetAll()
         {
-            return DbSet.ToList();
+            return _dbSet.ToList();
         }
 
         public virtual TEntity GetById(int id)
         {
-            return DbSet.FirstOrDefault(entity => entity.Id == id);
+            return _dbSet.FirstOrDefault(entity => entity.Id == id);
         }
 
         public TEntity Add(TEntity newEntity)
         {
-            return DbSet.Add(newEntity);
+            return _dbSet.Add(newEntity);
         }
 
         public TEntity Update(TEntity entity)
@@ -40,8 +43,8 @@ namespace PreciousGames.Verot.Morin.BusinessLayer.Queries.Common
             if (existingEntity == null)
                 throw new EntityNotFoundException(entity.Id);
 
-            DbSet.Attach(entity);
-            DbContext.Entry(entity).State = EntityState.Modified;
+            _dbSet.Attach(entity);
+            _dbContext.Entry(entity).State = EntityState.Modified;
 
             return entity;
         }
@@ -53,10 +56,10 @@ namespace PreciousGames.Verot.Morin.BusinessLayer.Queries.Common
             if (existingEntity == null)
                 throw new EntityNotFoundException(id);
 
-            if (DbContext.Entry(existingEntity).State == EntityState.Detached)
-                DbSet.Attach(existingEntity);
+            if (_dbContext.Entry(existingEntity).State == EntityState.Detached)
+                _dbSet.Attach(existingEntity);
 
-            DbSet.Remove(existingEntity);
+            _dbSet.Remove(existingEntity);
         }
     }
 }

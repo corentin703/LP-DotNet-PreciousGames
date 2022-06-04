@@ -349,4 +349,7 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
-Infrastructure/ModelLayer/App_Data/PreciousGame*
+Infrastructure/ModelLayer/App_Data/PreciousGame.mdf*
+Infrastructure/ModelLayer/App_Data/PreciousGame_log.ldf*
+Infrastructure/BusinessLayer.Tests/App_Data/PreciousGame.mdf*
+Infrastructure/BusinessLayer.Tests/App_Data/PreciousGame_log.ldf*
