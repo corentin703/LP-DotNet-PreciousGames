@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Desktop.ViewModels.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,28 +21,27 @@ namespace Desktop.Views
     /// </summary>
     public partial class GameList : UserControl
     {
-
-        private RelayCommande _actionOpenAddWindow;
+        private RelayCommand _actionOpenAddWindow;
         public GameList()
         {
             InitializeComponent();
         }
 
-        /*public void AddNewGame(object sender, RoutedEventArgs e)
+        public void AddNewGame()
         {
             AddGameWindow addGameWindow = new AddGameWindow();
             addGameWindow.Show();
-            
-        }*/
+
+        }
 
         public ICommand AddNewGameCommande
         {
             get
             {
                 if (_actionOpenAddWindow == null)
-                {
-                    _actionOpenAddWindow = new 
-                }
+                    _actionOpenAddWindow = new RelayCommand(AddNewGame);
+
+                return _actionOpenAddWindow;
             }
 
         }
