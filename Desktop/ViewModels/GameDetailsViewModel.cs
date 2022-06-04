@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
+using System.Windows.Input;
 using Desktop.ViewModels.Common;
 using PreciousGames.Verot.Morin.ModelLayer.Entities;
 
@@ -19,26 +20,33 @@ namespace Desktop.ViewModels
         private ObservableCollection<GameExperienceViewModel> _experiences;
         private ObservableCollection<GameEvaluationViewModel> _evaluations;
 
+        private RelayCommand _cancelOperation;
+        private RelayCommand _saveOperation;
+
         public GameDetailsViewModel(Game model)
         {
             _model = model;
+            Reset();
+        }
 
-            _name = model.Name;
-            _description = model.Description;
-            _releaseDate = model.ReleaseDate;
+        private void Reset()
+        {
+            _name = _model.Name;
+            _description = _model.Description;
+            _releaseDate = _model.ReleaseDate;
 
-            _editor = new GameEditorViewModel(model.Editor);
-            _kind = new GameKindViewModel(model.Kind);
+            _editor = new GameEditorViewModel(_model.Editor);
+            _kind = new GameKindViewModel(_model.Kind);
 
             _evaluations = new ObservableCollection<GameEvaluationViewModel>(
-                model.Evaluations
+                _model.Evaluations
                     .Select(evaluation => 
                         new GameEvaluationViewModel(evaluation)
                     )
             );
 
             _experiences = new ObservableCollection<GameExperienceViewModel>(
-                model.Experiences.Select(experience =>
+                _model.Experiences.Select(experience =>
                     new GameExperienceViewModel(experience)
                 )
             );
@@ -114,6 +122,50 @@ namespace Desktop.ViewModels
                 _evaluations = value;
                 OnPropertyChanged(nameof(Evaluations));
             }
+        }
+
+        public ICommand Cancel
+        {
+            get
+            {
+                if (_cancelOperation == null)
+                    _cancelOperation = new RelayCommand(CancelOperation);
+
+                return _cancelOperation;
+            }
+        }
+
+        public ICommand Save
+        {
+            get
+            {
+                if (_saveOperation == null)
+                    _saveOperation = new RelayCommand(SaveOperation);
+
+                return _saveOperation;
+            }
+        }
+
+        private void SaveOperation()
+        {
+            _model.Description = Description;
+            _model.Name = _name;
+            _model.ReleaseDate = _releaseDate ?? _model.ReleaseDate;
+            _model.Editor = _editor.SelectedEditorModel;
+            _model.Kind = _kind.SelectedKindModel;
+
+
+            _name = _model.Name;
+            _description = _model.Description;
+            _releaseDate = _model.ReleaseDate;
+
+            _editor = new GameEditorViewModel(_model.Editor);
+            _kind = new GameKindViewModel(_model.Kind);
+        }
+
+        public void CancelOperation()
+        {
+            Reset();
         }
     }
 }

@@ -5,11 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Desktop.Views" xmlns:viewmodels="clr-namespace:Desktop.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:GameDetailsViewModel}"
              mc:Ignorable="d" 
-             d:DesignHeight="220" d:DesignWidth="400">
+             d:DesignHeight="300" d:DesignWidth="400">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="35"></RowDefinition>
             <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
             <RowDefinition Height="35"></RowDefinition>
             <RowDefinition Height="35"></RowDefinition>
             <RowDefinition Height="35"></RowDefinition>
@@ -41,5 +43,8 @@
         
         <local:GameEditor Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="0" DataContext="{Binding Editor}"></local:GameEditor>
         <local:GameKind Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="0" DataContext="{Binding Kind}"></local:GameKind>
+
+        <Button Content="Annuler" Grid.Row="5" Grid.Column="0" Command="{Binding Cancel}"></Button>
+        <Button Content="Valider"  Grid.Row="5" Grid.Column="1" Command="{Binding Save}"></Button>
     </Grid>
 </UserControl>
