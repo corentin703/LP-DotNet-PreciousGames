@@ -30,6 +30,6 @@
             
         </ListView>
         <views:GameDetails Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" DataContext="{Binding SelectedGame}"></views:GameDetails>
-        <Button  Grid.Column="2" Grid.Row="3" Width="150px" Height="100" Command="Binding AddNewGame" >AddGame</Button>
+        <Button  Grid.Column="2" Grid.Row="3" Width="150px" Height="100" Command="{Binding AddNewGameCommande}" >AddGame</Button>
     </Grid>
 </UserControl>
