@@ -2,6 +2,7 @@
 using PreciousGames.Verot.Morin.BusinessLayer.Managers;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 
 namespace Desktop.ViewModels
 {
@@ -44,5 +45,7 @@ namespace Desktop.ViewModels
         }
 
         #endregion
+
+        
     }
 }

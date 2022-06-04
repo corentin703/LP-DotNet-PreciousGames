@@ -20,9 +20,30 @@ namespace Desktop.Views
     /// </summary>
     public partial class GameList : UserControl
     {
+
+        private RelayCommande _actionOpenAddWindow;
         public GameList()
         {
             InitializeComponent();
+        }
+
+        /*public void AddNewGame(object sender, RoutedEventArgs e)
+        {
+            AddGameWindow addGameWindow = new AddGameWindow();
+            addGameWindow.Show();
+            
+        }*/
+
+        public ICommand AddNewGameCommande
+        {
+            get
+            {
+                if (_actionOpenAddWindow == null)
+                {
+                    _actionOpenAddWindow = new 
+                }
+            }
+
         }
     }
 }
