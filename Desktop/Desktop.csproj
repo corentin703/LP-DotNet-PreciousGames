@@ -65,6 +65,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\AddGameViewModel.cs" />
     <Compile Include="ViewModels\Common\BaseViewModel.cs" />
     <Compile Include="ViewModels\Common\RelayCommand.cs" />
     <Compile Include="ViewModels\GameEditorViewModel.cs" />

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Desktop.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,8 +20,14 @@ namespace Desktop
     /// </summary>
     public partial class AddGameWindow : Window
     {
-        public AddGameWindow()
+        /*public AddGameWindow()
         {
+            InitializeComponent();
+        }*/
+
+        public AddGameWindow(AddGameViewModel addGameViewModel)
+        {
+            DataContext = addGameViewModel;
             InitializeComponent();
         }
     }
