@@ -1,0 +1,35 @@
+﻿@using PreciousGames.Verot.Morin.ModelLayer.Entities
+@using Web.Models.EditorModels
+@model IndexModel
+
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>View</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Editors)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (Editor editor in Model.Editors) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => editor.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = editor.Id }) |
+            @Html.ActionLink("Details", "Details", new { id = editor.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = editor.Id })
+        </td>
+    </tr>
+}
+
+</table>

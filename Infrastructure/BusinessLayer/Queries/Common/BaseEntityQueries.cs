@@ -31,6 +31,11 @@ namespace PreciousGames.Verot.Morin.BusinessLayer.Queries.Common
             return _dbSet.FirstOrDefault(entity => entity.Id == id);
         }
 
+        public int Count()
+        {
+            return _dbSet.Count();
+        }
+
         public TEntity Add(TEntity newEntity)
         {
             return _dbSet.Add(newEntity);

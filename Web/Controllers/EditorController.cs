@@ -1,4 +1,6 @@
 ﻿using System.Web.Mvc;
+using PreciousGames.Verot.Morin.BusinessLayer.Managers;
+using Web.Models.EditorModels;
 
 namespace Web.Controllers
 {
@@ -7,7 +9,11 @@ namespace Web.Controllers
         // GET: Editor
         public ActionResult Index()
         {
-            return View();
+            return View(new IndexModel()
+            {
+                Editors = BusinessManager.Instance.GetAllEditors(),
+                EditorCount = BusinessManager.Instance.CountEditors(),
+            });
         }
 
         // GET: Editor/Details/5

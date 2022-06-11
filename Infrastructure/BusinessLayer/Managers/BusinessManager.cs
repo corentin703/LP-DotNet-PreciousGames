@@ -108,6 +108,11 @@ namespace PreciousGames.Verot.Morin.BusinessLayer.Managers
             return _editorsQueries.GetAll();
         }
 
+        public int CountEditors()
+        {
+            return _editorsQueries.Count();
+        }
+
         public Editor GetEditorById(int id)
         {
             return _editorsQueries.GetById(id);

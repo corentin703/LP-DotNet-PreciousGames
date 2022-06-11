@@ -137,6 +137,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\EditorModels\DetailModel.cs" />
+    <Compile Include="Models\EditorModels\IndexModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\EditorController.cs" />
     <Compile Include="Controllers\EvaluationController.cs" />
@@ -194,11 +196,11 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Editor\Index.cshtml" />
+    <Content Include="Views\Editor\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
-    <Folder Include="Views\Editor\" />
     <Folder Include="Views\Evaluation\" />
     <Folder Include="Views\Experience\" />
     <Folder Include="Views\Game\" />
@@ -230,6 +232,16 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\jquery-3.6.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.6.0.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\BusinessLayer\BusinessLayer.csproj">
+      <Project>{3EAA6B6E-BAD7-4FED-A6C9-DD4155CECB0B}</Project>
+      <Name>BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\ModelLayer\ModelLayer.csproj">
+      <Project>{8C75D558-9FF8-47D3-9C8D-031D69BE8EB9}</Project>
+      <Name>ModelLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
