@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PreciousGames.Verot.Morin.BusinessLayer.Exceptions
+namespace VerotMorin.PreciousGames.BusinessLayer.Exceptions
 {
     public class EntityNotFoundException : Exception
     {

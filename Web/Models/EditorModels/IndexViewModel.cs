@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Web.Models.EditorModels
+namespace VerotMorin.PreciousGames.Web.Models.EditorModels
 {
     public class IndexViewModel
     {

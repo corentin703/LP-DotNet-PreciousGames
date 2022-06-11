@@ -1,9 +1,11 @@
-﻿<UserControl x:Class="Desktop.Views.GameEvaluationList"
+﻿<UserControl x:Class="VerotMorin.PreciousGames.Desktop.Views.GameEvaluationList"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:views="clr-namespace:Desktop.Views" xmlns:viewmodels="clr-namespace:Desktop.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:GameEvaluationListViewModel}"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModels="clr-namespace:VerotMorin.PreciousGames.Desktop.ViewModels"
+             xmlns:views1="clr-namespace:VerotMorin.PreciousGames.Desktop.Views"
+             d:DataContext="{d:DesignInstance Type=viewModels:GameEvaluationListViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="1250">
     <StackPanel>
@@ -17,6 +19,6 @@
             </ListView.View>
         </ListView>
 
-        <views:GameEvaluation Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" DataContext="{Binding SelectedEvaluation}"></views:GameEvaluation>
+        <views1:GameEvaluation Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" DataContext="{Binding SelectedEvaluation}"></views1:GameEvaluation>
     </StackPanel>
 </UserControl>

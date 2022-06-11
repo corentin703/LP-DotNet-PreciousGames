@@ -7,8 +7,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{1D1FE6C9-97C2-487E-9004-8D1FE88D5BA9}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>PreciousGames.Verot.Morin.Console</RootNamespace>
-    <AssemblyName>PreciousGames.Verot.Morin.Console</AssemblyName>
+    <RootNamespace>VerotMorin.PreciousGames.Console</RootNamespace>
+    <AssemblyName>VerotMorin.PreciousGames.Console</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

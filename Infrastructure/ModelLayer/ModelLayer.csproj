@@ -8,8 +8,8 @@
     <ProjectGuid>{8C75D558-9FF8-47D3-9C8D-031D69BE8EB9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PreciousGames.Verot.Morin.ModelLayer</RootNamespace>
-    <AssemblyName>PreciousGames.Verot.Morin.ModelLayer</AssemblyName>
+    <RootNamespace>VerotMorin.PreciousGames.ModelLayer</RootNamespace>
+    <AssemblyName>VerotMorin.PreciousGames.ModelLayer</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

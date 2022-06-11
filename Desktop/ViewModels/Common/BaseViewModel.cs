@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Desktop.ViewModels.Common
+namespace VerotMorin.PreciousGames.Desktop.ViewModels.Common
 {
     public abstract class BaseViewModel : INotifyPropertyChanged
     {

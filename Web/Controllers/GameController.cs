@@ -1,9 +1,9 @@
-﻿using PreciousGames.Verot.Morin.BusinessLayer.Managers;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
-using Web.Models.GameModels;
+using VerotMorin.PreciousGames.BusinessLayer.Managers;
+using VerotMorin.PreciousGames.Web.Models.GameModels;
 
-namespace Web.Controllers
+namespace VerotMorin.PreciousGames.Web.Controllers
 {
     public class GameController : Controller
     {

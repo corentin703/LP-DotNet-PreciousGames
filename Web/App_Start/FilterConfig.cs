@@ -1,7 +1,6 @@
-﻿using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
-namespace Web
+namespace VerotMorin.PreciousGames.Web
 {
     public class FilterConfig
     {

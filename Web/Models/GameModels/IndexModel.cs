@@ -1,10 +1,6 @@
-﻿using PreciousGames.Verot.Morin.ModelLayer.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
-namespace Web.Models.GameModels
+namespace VerotMorin.PreciousGames.Web.Models.GameModels
 {
     
     public class IndexModel

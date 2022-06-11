@@ -1,6 +1,6 @@
-﻿using Desktop.ViewModels.Common;
+﻿using VerotMorin.PreciousGames.Desktop.ViewModels.Common;
 
-namespace Desktop.ViewModels
+namespace VerotMorin.PreciousGames.Desktop.ViewModels
 {
     public class HomeViewModel : BaseViewModel
     {

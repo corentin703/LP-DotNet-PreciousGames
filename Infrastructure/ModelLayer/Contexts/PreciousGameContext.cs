@@ -1,8 +1,8 @@
 ﻿using System.Data.Entity;
 using System.Reflection;
-using PreciousGames.Verot.Morin.ModelLayer.Entities;
+using VerotMorin.PreciousGames.ModelLayer.Entities;
 
-namespace PreciousGames.Verot.Morin.ModelLayer.Contexts
+namespace VerotMorin.PreciousGames.ModelLayer.Contexts
 {
     public class PreciousGameContext : DbContext
     {

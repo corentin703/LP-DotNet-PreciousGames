@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using PreciousGames.Verot.Morin.BusinessLayer.Exceptions;
-using PreciousGames.Verot.Morin.ModelLayer.Contexts;
-using PreciousGames.Verot.Morin.ModelLayer.Entities.Common;
+using VerotMorin.PreciousGames.BusinessLayer.Exceptions;
+using VerotMorin.PreciousGames.ModelLayer.Contexts;
+using VerotMorin.PreciousGames.ModelLayer.Entities.Common;
 
-namespace PreciousGames.Verot.Morin.BusinessLayer.Queries.Common
+namespace VerotMorin.PreciousGames.BusinessLayer.Queries.Common
 {
     internal abstract class BaseEntityQueries<TEntity> where TEntity : BaseEntity
     {

@@ -1,4 +1,4 @@
-﻿namespace PreciousGames.Verot.Morin.ModelLayer.Entities.Common
+﻿namespace VerotMorin.PreciousGames.ModelLayer.Entities.Common
 {
     public abstract class BaseEntity
     {

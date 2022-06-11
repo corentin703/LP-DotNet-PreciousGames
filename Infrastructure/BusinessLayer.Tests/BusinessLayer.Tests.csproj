@@ -7,8 +7,8 @@
     <ProjectGuid>{BCF242D0-1F95-4F30-BF3D-4899D05BF1A7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PreciousGames.Verot.Morin.BusinessLayer.Tests</RootNamespace>
-    <AssemblyName>PreciousGames.Verot.Morin.BusinessLayer.Tests</AssemblyName>
+    <RootNamespace>VerotMorin.PreciousGames.BusinessLayer.Tests</RootNamespace>
+    <AssemblyName>VerotMorin.PreciousGames.BusinessLayer.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>

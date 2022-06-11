@@ -1,7 +1,7 @@
 ﻿using System;
-using PreciousGames.Verot.Morin.ModelLayer.Entities.Common;
+using VerotMorin.PreciousGames.ModelLayer.Entities.Common;
 
-namespace PreciousGames.Verot.Morin.ModelLayer.Entities
+namespace VerotMorin.PreciousGames.ModelLayer.Entities
 {
     public class Experience : BaseEntity
     {

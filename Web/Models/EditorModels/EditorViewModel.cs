@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using PreciousGames.Verot.Morin.ModelLayer.Entities;
+using VerotMorin.PreciousGames.ModelLayer.Entities;
 
-namespace Web.Models.EditorModels
+namespace VerotMorin.PreciousGames.Web.Models.EditorModels
 {
     public class EditorViewModel
     {

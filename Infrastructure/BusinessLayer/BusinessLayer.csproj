@@ -8,8 +8,8 @@
     <ProjectGuid>{3EAA6B6E-BAD7-4FED-A6C9-DD4155CECB0B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PreciousGames.Verot.Morin.BusinessLayer</RootNamespace>
-    <AssemblyName>PreciousGames.Verot.Morin.BusinessLayer</AssemblyName>
+    <RootNamespace>VerotMorin.PreciousGames.BusinessLayer</RootNamespace>
+    <AssemblyName>VerotMorin.PreciousGames.BusinessLayer</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

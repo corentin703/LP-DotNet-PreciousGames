@@ -2,11 +2,11 @@
 using System.Globalization;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PreciousGames.Verot.Morin.BusinessLayer.Managers;
-using PreciousGames.Verot.Morin.ModelLayer.Contexts;
-using PreciousGames.Verot.Morin.ModelLayer.Entities;
+using VerotMorin.PreciousGames.BusinessLayer.Managers;
+using VerotMorin.PreciousGames.ModelLayer.Contexts;
+using VerotMorin.PreciousGames.ModelLayer.Entities;
 
-namespace PreciousGames.Verot.Morin.BusinessLayer.Tests.Queries
+namespace VerotMorin.PreciousGames.BusinessLayer.Tests.Queries
 {
     [TestClass]
     public class GameQueriesTests

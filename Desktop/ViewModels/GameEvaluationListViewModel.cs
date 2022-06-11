@@ -1,10 +1,10 @@
-﻿using Desktop.ViewModels.Common;
-using PreciousGames.Verot.Morin.ModelLayer.Entities;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using VerotMorin.PreciousGames.Desktop.ViewModels.Common;
+using VerotMorin.PreciousGames.ModelLayer.Entities;
 
-namespace Desktop.ViewModels
+namespace VerotMorin.PreciousGames.Desktop.ViewModels
 {
     public class GameEvaluationListViewModel : BaseViewModel
     {

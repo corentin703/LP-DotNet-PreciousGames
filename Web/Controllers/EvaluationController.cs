@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace Web.Controllers
+namespace VerotMorin.PreciousGames.Web.Controllers
 {
     public class EvaluationController : Controller
     {

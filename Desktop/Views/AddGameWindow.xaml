@@ -1,10 +1,11 @@
-﻿<Window x:Class="Desktop.AddGameWindow"
+﻿<Window x:Class="VerotMorin.PreciousGames.Desktop.Views.AddGameWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Desktop" xmlns:viewmodels="clr-namespace:Desktop.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:AddGameViewModel}"
-        xmlns:views="clr-namespace:Desktop.Views"
+        xmlns:local="clr-namespace:Desktop" d:DataContext="{d:DesignInstance Type=viewModels:AddGameViewModel}"
+        xmlns:viewModels="clr-namespace:VerotMorin.PreciousGames.Desktop.ViewModels"
+        xmlns:views1="clr-namespace:VerotMorin.PreciousGames.Desktop.Views"
         mc:Ignorable="d"
         Title="New Game" Height="450" Width="800">
     <Grid>
@@ -39,8 +40,8 @@
         >
 
         </DatePicker>
-        <views:GameEditor Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="0" DataContext="{Binding Editor}"></views:GameEditor>
-        <views:GameEditor Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="0" DataContext="{Binding Kind}"></views:GameEditor>
+        <views1:GameEditor Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="0" DataContext="{Binding Editor}"></views1:GameEditor>
+        <views1:GameEditor Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="0" DataContext="{Binding Kind}"></views1:GameEditor>
         
 
         <Button Content="Ajouter"  Grid.Row="4" Grid.Column="2" Command="{Binding Add}"></Button>

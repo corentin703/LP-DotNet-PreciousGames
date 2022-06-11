@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using PreciousGames.Verot.Morin.BusinessLayer.Managers;
-using PreciousGames.Verot.Morin.ModelLayer.Entities;
-using Web.Models.EditorModels;
+using VerotMorin.PreciousGames.BusinessLayer.Managers;
+using VerotMorin.PreciousGames.ModelLayer.Entities;
+using VerotMorin.PreciousGames.Web.Models.EditorModels;
 
-namespace Web.Controllers
+namespace VerotMorin.PreciousGames.Web.Controllers
 {
     public class EditorController : Controller
     {

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using PreciousGames.Verot.Morin.BusinessLayer.Queries;
-using PreciousGames.Verot.Morin.ModelLayer.Contexts;
-using PreciousGames.Verot.Morin.ModelLayer.Entities;
+using VerotMorin.PreciousGames.BusinessLayer.Queries;
+using VerotMorin.PreciousGames.ModelLayer.Contexts;
+using VerotMorin.PreciousGames.ModelLayer.Entities;
 
-namespace PreciousGames.Verot.Morin.BusinessLayer.Managers
+namespace VerotMorin.PreciousGames.BusinessLayer.Managers
 {
     public class BusinessManager : IDisposable
     {

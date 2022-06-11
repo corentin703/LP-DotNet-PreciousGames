@@ -2,7 +2,7 @@
 using System.IO;
 using System.Windows;
 
-namespace Desktop
+namespace VerotMorin.PreciousGames.Desktop
 {
     /// <summary>
     /// Logique d'interaction pour App.xaml

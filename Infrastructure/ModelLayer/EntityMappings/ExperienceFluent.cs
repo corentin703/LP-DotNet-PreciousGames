@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity.ModelConfiguration;
-using PreciousGames.Verot.Morin.ModelLayer.Entities;
+using VerotMorin.PreciousGames.ModelLayer.Entities;
 
-namespace PreciousGames.Verot.Morin.ModelLayer.EntityMappings
+namespace VerotMorin.PreciousGames.ModelLayer.EntityMappings
 {
     internal class ExperienceFluent : EntityTypeConfiguration<Experience>
     {

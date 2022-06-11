@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace Desktop.ViewModels.Common
+namespace VerotMorin.PreciousGames.Desktop.ViewModels.Common
 {
     /// <summary>
     /// Commande MVVM

@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Globalization;
-using System.Linq;
 using System.Windows.Input;
-using Desktop.ViewModels.Common;
-using PreciousGames.Verot.Morin.BusinessLayer.Managers;
-using PreciousGames.Verot.Morin.ModelLayer.Entities;
+using VerotMorin.PreciousGames.BusinessLayer.Managers;
+using VerotMorin.PreciousGames.Desktop.ViewModels.Common;
+using VerotMorin.PreciousGames.ModelLayer.Entities;
 
-namespace Desktop.ViewModels
+namespace VerotMorin.PreciousGames.Desktop.ViewModels
 {
     public class AddGameViewModel : BaseViewModel
     {
