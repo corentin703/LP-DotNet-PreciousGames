@@ -14,8 +14,10 @@ namespace Web
     {
         protected void Application_Start()
         {
-            DirectoryInfo dataDirectoryInfo = new DirectoryInfo("../../../Infrastructure/ModelLayer/App_Data");
-            AppDomain.CurrentDomain.SetData("DataDirectory", dataDirectoryInfo.FullName);
+            //DirectoryInfo dataDirectoryInfo = new DirectoryInfo("../../../Infrastructure/ModelLayer/App_Data");
+            //AppDomain.CurrentDomain.SetData("DataDirectory", dataDirectoryInfo.FullName);
+
+
 
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);

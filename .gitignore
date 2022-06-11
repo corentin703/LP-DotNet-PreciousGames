@@ -353,3 +353,4 @@ Infrastructure/ModelLayer/App_Data/PreciousGame.mdf*
 Infrastructure/ModelLayer/App_Data/PreciousGame_log.ldf*
 Infrastructure/BusinessLayer.Tests/App_Data/PreciousGame.mdf*
 Infrastructure/BusinessLayer.Tests/App_Data/PreciousGame_log.ldf*
+Web/Web.config

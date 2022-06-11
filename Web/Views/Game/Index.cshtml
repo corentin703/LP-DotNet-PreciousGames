@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Web.Models.GameModels.GameViewModel>
+﻿@using Web.Models.GameModels;
+@model IndexModel
 
 @{
     ViewBag.Title = "GameIndex";
@@ -12,24 +13,24 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayName(nameof(GameViewModel.Name))
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayName(nameof(GameViewModel.Description))
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ReleaseDate)
+            @Html.DisplayName(nameof(GameViewModel.ReleaseDate))
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.KindId)
+            @Html.DisplayName(nameof(GameViewModel.Kind))
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EditorId)
+            @Html.DisplayName(nameof(GameViewModel.Editor))
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model.Games) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
@@ -41,10 +42,10 @@
             @Html.DisplayFor(modelItem => item.ReleaseDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.KindId)
+            @Html.DisplayFor(modelItem => item.Kind.Id)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.EditorId)
+            @Html.DisplayFor(modelItem => item.Editor.Id)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
