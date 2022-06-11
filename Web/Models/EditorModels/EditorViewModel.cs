@@ -5,6 +5,7 @@ namespace VerotMorin.PreciousGames.Web.Models.EditorModels
 {
     public class EditorViewModel
     {
+        [Required]
         public int Id { get; }
 
         [Required]

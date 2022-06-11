@@ -1,9 +1,20 @@
 ﻿@model VerotMorin.PreciousGames.Web.Models.EditorModels.EditorViewModel
 
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = @Model.Name;
 }
 
 <h2>Détail de l'éditeur @Model.Name</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            Nom
+        </div>
+        <div class="col">
+            @Model.Name
+        </div>
+    </div>
+</div>
 
 

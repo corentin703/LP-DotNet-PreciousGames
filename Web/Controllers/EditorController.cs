@@ -38,64 +38,80 @@ namespace VerotMorin.PreciousGames.Web.Controllers
 
         // POST: Editor/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(EditorViewModel editorViewModel)
         {
             if (!ModelState.IsValid)
-                return View();
+                return View(editorViewModel);
 
             try
             {
-                // TODO: Add insert logic here
+                BusinessManager.Instance.AddEditor(new Editor()
+                {
+                    Name = editorViewModel.Name,
+                });
+                BusinessManager.Instance.SaveChanges();
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View(new EditorViewModel());
+                return View(editorViewModel);
             }
         }
 
         // GET: Editor/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            Editor editor = BusinessManager.Instance.GetEditorById(id);
+            return View(new EditorViewModel(editor));
         }
 
         // POST: Editor/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, EditorViewModel editorViewModel)
         {
+            if (!ModelState.IsValid)
+                return View(editorViewModel);
+
+            Editor editor = BusinessManager.Instance.GetEditorById(id);
+
             try
             {
-                // TODO: Add update logic here
+                editor.Name = editorViewModel.Name;
+                BusinessManager.Instance.UpdateEditor(editor);
+                BusinessManager.Instance.SaveChanges();
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(editorViewModel);
             }
         }
 
         // GET: Editor/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            Editor editor = BusinessManager.Instance.GetEditorById(id);
+            return View(new EditorViewModel(editor));
         }
 
         // POST: Editor/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, EditorViewModel editorViewModel)
         {
+            if (!ModelState.IsValid)
+                return View(editorViewModel);
+
             try
             {
-                // TODO: Add delete logic here
-
+                BusinessManager.Instance.DeleteEditor(id);
+                BusinessManager.Instance.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(editorViewModel);
             }
         }
     }

@@ -2,13 +2,13 @@
 @model IndexViewModel
 
 @{
-    ViewBag.Title = "View";
+    ViewBag.Title = "Éditeurs";
 }
 
-<h2>View</h2>
+<h2>Éditeurs</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Ajouter un éditeur", "Create")
 </p>
 <table class="table">
     <tr>
@@ -24,11 +24,13 @@
             @Html.DisplayFor(modelItem => editor.Name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = editor.Id }) |
-            @Html.ActionLink("Details", "Details", new { id = editor.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = editor.Id })
+            @Html.ActionLink("Éditer", "Edit", new { id = editor.Id }) |
+            @Html.ActionLink("Détails", "Details", new { id = editor.Id }) |
+            @Html.ActionLink("Supprimer", "Delete", new { id = editor.Id })
         </td>
     </tr>
 }
 
 </table>
+
+<h6>Il y a @Model.EditorCount éditeur(s) au total.</h6>

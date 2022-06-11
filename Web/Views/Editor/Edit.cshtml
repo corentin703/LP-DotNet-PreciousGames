@@ -1,0 +1,24 @@
+﻿@using VerotMorin.PreciousGames.Web.Models.EditorModels
+@model EditorViewModel
+
+@{
+    ViewBag.Title = $"Édition de {Model.Name}";
+}
+
+<h2>Édition de @Model.Name</h2>
+
+@using (Html.BeginForm())
+{
+
+    @Html.HiddenFor(model => model.Id)
+
+    <div class="my-2">
+        @Html.LabelFor(model => model.Name, new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+
+    <div class="text-end">
+        <input class="btn btn-primary" type="submit" value="Mettre à jour" />
+    </div>
+}
