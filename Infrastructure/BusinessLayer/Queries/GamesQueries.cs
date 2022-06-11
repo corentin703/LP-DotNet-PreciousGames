@@ -24,6 +24,17 @@ namespace PreciousGames.Verot.Morin.BusinessLayer.Queries
                 .ToList();
         }
 
+        public List<Game> GetAllOrderedByName()
+        {
+            return DbSet
+                .Include(game => game.Editor)
+                .Include(game => game.Evaluations)
+                .Include(game => game.Experiences)
+                .Include(game => game.Kind)
+                .OrderBy(game => game.Name)
+                .ToList();
+        }
+
         public override Game GetById(int id)
         {
             return DbSet

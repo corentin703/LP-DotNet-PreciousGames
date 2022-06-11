@@ -18,7 +18,7 @@ namespace Desktop.ViewModels
         private GameEditorViewModel _editor;
         private GameKindViewModel _kind;
         private ObservableCollection<GameExperienceViewModel> _experiences;
-        private ObservableCollection<GameEvaluationViewModel> _evaluations;
+        private GameEvaluationListViewModel _evaluations;
 
         private RelayCommand _cancelOperation;
         private RelayCommand _saveOperation;
@@ -38,12 +38,7 @@ namespace Desktop.ViewModels
             _editor = new GameEditorViewModel(_model.Editor);
             _kind = new GameKindViewModel(_model.Kind);
 
-            _evaluations = new ObservableCollection<GameEvaluationViewModel>(
-                _model.Evaluations
-                    .Select(evaluation => 
-                        new GameEvaluationViewModel(evaluation)
-                    )
-            );
+            _evaluations = new GameEvaluationListViewModel(_model.Evaluations);
 
             _experiences = new ObservableCollection<GameExperienceViewModel>(
                 _model.Experiences.Select(experience =>
@@ -114,7 +109,7 @@ namespace Desktop.ViewModels
             }
         }
 
-        public ObservableCollection<GameEvaluationViewModel> Evaluations
+        public GameEvaluationListViewModel Evaluations
         {
             get => _evaluations;
             set

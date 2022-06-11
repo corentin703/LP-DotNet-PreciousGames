@@ -68,6 +68,7 @@
     <Compile Include="ViewModels\Common\BaseViewModel.cs" />
     <Compile Include="ViewModels\Common\RelayCommand.cs" />
     <Compile Include="ViewModels\GameEditorViewModel.cs" />
+    <Compile Include="ViewModels\GameEvaluationListViewModel.cs" />
     <Compile Include="ViewModels\GameEvaluationViewModel.cs" />
     <Compile Include="ViewModels\GameExperienceViewModel.cs" />
     <Compile Include="ViewModels\GameDetailsViewModel.cs" />
@@ -79,6 +80,9 @@
     </Compile>
     <Compile Include="Views\GameEvaluation.xaml.cs">
       <DependentUpon>GameEvaluation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GameEvaluationList.xaml.cs">
+      <DependentUpon>GameEvaluationList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\GameExperience.xaml.cs">
       <DependentUpon>GameExperience.xaml</DependentUpon>
@@ -116,6 +120,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\GameEvaluation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GameEvaluationList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

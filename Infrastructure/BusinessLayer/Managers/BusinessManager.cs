@@ -45,6 +45,11 @@ namespace PreciousGames.Verot.Morin.BusinessLayer.Managers
             return _gamesQueries.GetAll();
         }
 
+        public List<Game> GetAllGamesOrderedByName()
+        {
+            return _gamesQueries.GetAllOrderedByName();
+        }
+
         public Game GetGameById(int id)
         {
             return _gamesQueries.GetById(id);

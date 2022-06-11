@@ -14,8 +14,7 @@ namespace Desktop.ViewModels
         public GameListViewModel()
         {
             _games = new ObservableCollection<GameDetailsViewModel>(
-                BusinessManager.Instance.GetAllGames()
-                    .OrderBy(game => game.Name)
+                BusinessManager.Instance.GetAllGamesOrderedByName()
                     .Select(game => new GameDetailsViewModel(game))
             );
 
@@ -45,7 +44,5 @@ namespace Desktop.ViewModels
         }
 
         #endregion
-
-        
     }
 }
