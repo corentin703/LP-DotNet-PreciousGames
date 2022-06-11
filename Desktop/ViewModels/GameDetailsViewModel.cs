@@ -11,7 +11,8 @@ namespace VerotMorin.PreciousGames.Desktop.ViewModels
 {
     public class GameDetailsViewModel : BaseViewModel
     {
-        private readonly Game _model;
+        private Game _modelBackup;
+        private Game _model;
 
         private string _name;
         private string _description;
@@ -28,22 +29,23 @@ namespace VerotMorin.PreciousGames.Desktop.ViewModels
         public GameDetailsViewModel(Game model)
         {
             _model = model;
+            _modelBackup = (Game) _model.Clone();
             Reset();
         }
 
         private void Reset()
         {
-            _name = _model.Name;
-            _description = _model.Description;
-            _releaseDate = _model.ReleaseDate;
+            _name = _modelBackup.Name;
+            _description = _modelBackup.Description;
+            _releaseDate = _modelBackup.ReleaseDate;
 
-            _editor = new GameEditorViewModel(_model.Editor);
-            _kind = new GameKindViewModel(_model.Kind);
+            _editor = new GameEditorViewModel(_modelBackup.Editor);
+            _kind = new GameKindViewModel(_modelBackup.Kind);
 
-            _evaluations = new GameEvaluationListViewModel(_model.Evaluations);
+            _evaluations = new GameEvaluationListViewModel(_modelBackup.Evaluations);
 
             _experiences = new ObservableCollection<GameExperienceViewModel>(
-                _model.Experiences.Select(experience =>
+                _modelBackup.Experiences.Select(experience =>
                     new GameExperienceViewModel(experience)
                 )
             );
@@ -160,6 +162,7 @@ namespace VerotMorin.PreciousGames.Desktop.ViewModels
             _kind = new GameKindViewModel(_model.Kind);
 
             BusinessManager.Instance.SaveChanges();
+            _modelBackup = (Game) _model.Clone();
             Reset();
         }
 

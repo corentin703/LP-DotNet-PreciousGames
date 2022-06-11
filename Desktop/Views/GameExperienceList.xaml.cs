@@ -3,11 +3,11 @@
 namespace VerotMorin.PreciousGames.Desktop.Views
 {
     /// <summary>
-    /// Logique d'interaction pour GameExperience.xaml
+    /// Logique d'interaction pour GameEvaluationList.xaml
     /// </summary>
-    public partial class GameExperience : UserControl
+    public partial class GameExperienceList : UserControl
     {
-        public GameExperience()
+        public GameExperienceList()
         {
             InitializeComponent();
         }

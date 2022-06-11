@@ -1,10 +1,10 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
-using Desktop;
-using VerotMorin.PreciousGames.BusinessLayer.Managers;
 using VerotMorin.PreciousGames.Desktop.ViewModels.Common;
 using VerotMorin.PreciousGames.Desktop.Views;
+using VerotMorin.PreciousGames.ModelLayer.Entities;
 
 namespace VerotMorin.PreciousGames.Desktop.ViewModels
 {
@@ -15,11 +15,10 @@ namespace VerotMorin.PreciousGames.Desktop.ViewModels
 
         private RelayCommand _actionOpenAddWindow;
 
-        public GameListViewModel()
+        public GameListViewModel(IEnumerable<Game> games)
         {
             _games = new ObservableCollection<GameDetailsViewModel>(
-                BusinessManager.Instance.GetAllGamesOrderedByName()
-                    .Select(game => new GameDetailsViewModel(game))
+                games.Select(game => new GameDetailsViewModel(game))
             );
 
             _selectedGame = _games?.FirstOrDefault();
@@ -57,7 +56,7 @@ namespace VerotMorin.PreciousGames.Desktop.ViewModels
 
         }
 
-        public ICommand AddNewGameCommande
+        public ICommand AddNewGameCommand
         {
             get
             {

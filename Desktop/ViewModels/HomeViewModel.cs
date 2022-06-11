@@ -1,4 +1,7 @@
-﻿using VerotMorin.PreciousGames.Desktop.ViewModels.Common;
+﻿using System.Collections.Generic;
+using VerotMorin.PreciousGames.BusinessLayer.Managers;
+using VerotMorin.PreciousGames.Desktop.ViewModels.Common;
+using VerotMorin.PreciousGames.ModelLayer.Entities;
 
 namespace VerotMorin.PreciousGames.Desktop.ViewModels
 {
@@ -8,7 +11,9 @@ namespace VerotMorin.PreciousGames.Desktop.ViewModels
 
         public HomeViewModel()
         {
-            _gameListViewModel = new GameListViewModel();
+            IEnumerable<Game> games = BusinessManager.Instance.GetAllGamesOrderedByName();
+
+            _gameListViewModel = new GameListViewModel(games);
         }
 
         public GameListViewModel GameListViewModel

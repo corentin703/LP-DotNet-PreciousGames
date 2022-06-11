@@ -1,20 +1,20 @@
-﻿<UserControl x:Class="VerotMorin.PreciousGames.Desktop.Views.GameEvaluationList"
+﻿<UserControl x:Class="VerotMorin.PreciousGames.Desktop.Views.GameExperienceList"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:viewModels="clr-namespace:VerotMorin.PreciousGames.Desktop.ViewModels"
              xmlns:views1="clr-namespace:VerotMorin.PreciousGames.Desktop.Views"
-             d:DataContext="{d:DesignInstance Type=viewModels:GameEvaluationListViewModel}"
+             d:DataContext="{d:DesignInstance Type=viewModels:GameExperienceListViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="1250">
     <StackPanel>
-        <ListView Margin="5px" ItemsSource="{Binding Evaluations, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedEvaluation, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+        <ListView Margin="5px" ItemsSource="{Binding Experiences, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedExperience, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="100px" Header="Évaluateur" DisplayMemberBinding="{Binding EvaluatorName}" />
-                    <GridViewColumn Width="150px" Header="Note" DisplayMemberBinding="{Binding Mark}" />
-                    <GridViewColumn Width="150px" Header="Date" DisplayMemberBinding="{Binding Date}" />
+                    <GridViewColumn Width="100px" Header="Nom du joueur" DisplayMemberBinding="{Binding Player}" />
+                    <GridViewColumn Width="150px" Header="Durée de jeu" DisplayMemberBinding="{Binding PlayedTime}" />
+                    <GridViewColumn Width="150px" Header="Pourcentage" DisplayMemberBinding="{Binding Percentage}" />
                 </GridView>
             </ListView.View>
         </ListView>

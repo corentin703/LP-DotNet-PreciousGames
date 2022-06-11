@@ -26,8 +26,6 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
-            <!--<ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>-->
         </Grid.ColumnDefinitions>
 
         <Label Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" Background="AliceBlue" FontWeight="Bold">Nom</Label>
@@ -55,7 +53,7 @@
 
         <Button Content="Annuler" Grid.Row="5" Grid.Column="0" Command="{Binding Cancel}"></Button>
         <Button Content="Valider"  Grid.Row="5" Grid.Column="1" Command="{Binding Save}"></Button>
-        <TabControl>
+        <TabControl Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="6">
             <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
@@ -64,15 +62,18 @@
                     </StackPanel>
                 </TabItem.Header>
                 <StackPanel>
-                    <ListView Margin="5px" ItemsSource="{Binding Evaluations, UpdateSourceTrigger=PropertyChanged}">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn Width="100px" Header="Nom" DisplayMemberBinding="{Binding Name}" />
-                                <GridViewColumn Width="150px" Header="Description" DisplayMemberBinding="{Binding Description}" />
-                                <GridViewColumn Width="150px" Header="Date de sortie" DisplayMemberBinding="{Binding ReleaseDateDisplayString}" />
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
+                    <views:GameEvaluationList DataContext="{Binding Evaluations}"></views:GameEvaluationList>
+                </StackPanel>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                        <TextBlock>Expériences</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel>
+                    <views:GameExperienceList DataContext="{Binding Experiences}"></views:GameExperienceList>
                 </StackPanel>
             </TabItem>
         </TabControl>
