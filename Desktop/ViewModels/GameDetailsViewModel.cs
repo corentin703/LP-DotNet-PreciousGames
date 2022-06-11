@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Input;
 using Desktop.ViewModels.Common;
+using PreciousGames.Verot.Morin.BusinessLayer.Managers;
 using PreciousGames.Verot.Morin.ModelLayer.Entities;
 
 namespace Desktop.ViewModels
@@ -15,6 +16,7 @@ namespace Desktop.ViewModels
         private string _name;
         private string _description;
         private DateTime? _releaseDate;
+
         private GameEditorViewModel _editor;
         private GameKindViewModel _kind;
         private ObservableCollection<GameExperienceViewModel> _experiences;
@@ -161,9 +163,12 @@ namespace Desktop.ViewModels
 
             _editor = new GameEditorViewModel(_model.Editor);
             _kind = new GameKindViewModel(_model.Kind);
+
+            BusinessManager.Instance.SaveChanges();
+            Reset();
         }
 
-        public void CancelOperation()
+        private void CancelOperation()
         {
             Reset();
         }
