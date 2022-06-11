@@ -1,5 +1,8 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
 using PreciousGames.Verot.Morin.BusinessLayer.Managers;
+using PreciousGames.Verot.Morin.ModelLayer.Entities;
 using Web.Models.EditorModels;
 
 namespace Web.Controllers
@@ -9,9 +12,12 @@ namespace Web.Controllers
         // GET: Editor
         public ActionResult Index()
         {
-            return View(new IndexModel()
+            IEnumerable<Editor> editors = BusinessManager.Instance.GetAllEditors();
+            IEnumerable<EditorViewModel> editorViewModels = editors.Select(editor => new EditorViewModel(editor));
+
+            return View(new IndexViewModel()
             {
-                Editors = BusinessManager.Instance.GetAllEditors(),
+                Editors = editorViewModels,
                 EditorCount = BusinessManager.Instance.CountEditors(),
             });
         }
@@ -19,19 +25,24 @@ namespace Web.Controllers
         // GET: Editor/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View(new EditorViewModel(
+                BusinessManager.Instance.GetEditorById(id)
+            ));
         }
 
         // GET: Editor/Create
         public ActionResult Create()
         {
-            return View();
+            return View(new EditorViewModel());
         }
 
         // POST: Editor/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
+            if (!ModelState.IsValid)
+                return View();
+
             try
             {
                 // TODO: Add insert logic here
@@ -40,7 +51,7 @@ namespace Web.Controllers
             }
             catch
             {
-                return View();
+                return View(new EditorViewModel());
             }
         }
 

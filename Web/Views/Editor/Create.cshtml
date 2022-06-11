@@ -1,0 +1,16 @@
+﻿@using Web.Models.EditorModels
+@model EditorViewModel
+
+@{
+    ViewBag.Title = "title";
+}
+
+<h2>Ajout d'un éditeur</h2>
+
+@using(Html.BeginForm("Create")) {
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name)
+    @Html.ValidationMessageFor(model => model.Name)
+
+    <input type="submit" value="Créer" />
+}
