@@ -50,7 +50,8 @@ namespace Desktop.ViewModels
 
         public void AddNewGame()
         {
-            AddGameWindow addGameWindow = new AddGameWindow();
+            AddGameWindow addGameWindow = new AddGameWindow(new AddGameViewModel());
+
             addGameWindow.Show();
 
         }
