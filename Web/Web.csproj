@@ -139,6 +139,8 @@
     </Compile>
     <Compile Include="Models\EditorModels\DetailModel.cs" />
     <Compile Include="Models\EditorModels\IndexModel.cs" />
+    <Compile Include="Models\GameModels\GameViewModel.cs" />
+    <Compile Include="Models\GameModels\IndexModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\EditorController.cs" />
     <Compile Include="Controllers\EvaluationController.cs" />
@@ -198,12 +200,12 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Editor\Index.cshtml" />
     <Content Include="Views\Editor\Details.cshtml" />
+    <Content Include="Views\Game\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Evaluation\" />
     <Folder Include="Views\Experience\" />
-    <Folder Include="Views\Game\" />
     <Folder Include="Views\Kind\" />
   </ItemGroup>
   <ItemGroup>

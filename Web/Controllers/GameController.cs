@@ -1,4 +1,7 @@
-﻿using System.Web.Mvc;
+﻿using PreciousGames.Verot.Morin.BusinessLayer.Managers;
+using System.Linq;
+using System.Web.Mvc;
+using Web.Models.GameModels;
 
 namespace Web.Controllers
 {
@@ -7,7 +10,11 @@ namespace Web.Controllers
         // GET: Game
         public ActionResult Index()
         {
-            return View();
+            return View(new IndexModel()
+            {
+                Games = BusinessManager.Instance.GetAllGames().Select(game => new GameViewModel(game)),
+                GameCount = BusinessManager.Instance.CountGames(),
+            });
         }
 
         // GET: Game/Details/5
