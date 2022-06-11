@@ -3,6 +3,7 @@ using PreciousGames.Verot.Morin.BusinessLayer.Managers;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
+using System.Windows.Input;
 
 namespace Desktop.ViewModels
 {
@@ -10,6 +11,8 @@ namespace Desktop.ViewModels
     {
         private ObservableCollection<GameDetailsViewModel> _games;
         private GameDetailsViewModel _selectedGame;
+
+        private RelayCommand _actionOpenAddWindow;
 
         public GameListViewModel()
         {
@@ -44,5 +47,24 @@ namespace Desktop.ViewModels
         }
 
         #endregion
+
+        public void AddNewGame()
+        {
+            AddGameWindow addGameWindow = new AddGameWindow();
+            addGameWindow.Show();
+
+        }
+
+        public ICommand AddNewGameCommande
+        {
+            get
+            {
+                if (_actionOpenAddWindow == null)
+                    _actionOpenAddWindow = new RelayCommand(AddNewGame);
+
+                return _actionOpenAddWindow;
+            }
+
+        }
     }
 }

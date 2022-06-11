@@ -42,7 +42,7 @@ namespace Desktop.ViewModels.Common
 
         public bool CanExecute(object parameter)
         {
-            return this._canExecute == null ? true : this._canExecute();
+            return _canExecute?.Invoke() ?? true;
         }
 
         public event EventHandler CanExecuteChanged
