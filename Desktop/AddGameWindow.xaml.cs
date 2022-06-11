@@ -1,5 +1,4 @@
-﻿using Desktop.ViewModels.Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,22 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Desktop.Views
+namespace Desktop
 {
     /// <summary>
-    /// Logique d'interaction pour GameList.xaml
+    /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class GameList : UserControl
+    public partial class AddGameWindow : Window
     {
-        
-        public GameList()
+        public AddGameWindow()
         {
             InitializeComponent();
         }
-
-        
     }
 }
