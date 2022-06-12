@@ -5,7 +5,7 @@
     ViewBag.Title = "Éditeurs";
 }
 
-<h2>Éditeurs</h2>
+<h2>Éditeurs de jeux</h2>
 
 <p>
     @Html.ActionLink("Ajouter un éditeur", "Create")
@@ -13,7 +13,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Editors)
+            @Html.DisplayNameFor(model => model.Editors.GetEnumerator().Current.Name)
         </th>
         <th></th>
     </tr>

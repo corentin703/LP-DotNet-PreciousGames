@@ -1,0 +1,25 @@
+﻿@using VerotMorin.PreciousGames.Web.Models.KindModels
+@model KindViewModel
+
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<h2>Détails de @Model.Name</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Éditer", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Retour", "Index")
+</p>

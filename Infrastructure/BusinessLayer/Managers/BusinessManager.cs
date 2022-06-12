@@ -84,6 +84,16 @@ namespace VerotMorin.PreciousGames.BusinessLayer.Managers
             return _kindsQueries.GetAll();
         }
 
+        public List<Kind> GetAllKindsOrderedByName()
+        {
+            return _kindsQueries.GetAllOrderedByName();
+        }
+
+        public int CountKinds()
+        {
+            return _kindsQueries.Count();
+        }
+
         public Kind GetKindById(int id)
         {
             return _kindsQueries.GetById(id);
@@ -111,6 +121,11 @@ namespace VerotMorin.PreciousGames.BusinessLayer.Managers
         public List<Editor> GetAllEditors()
         {
             return _editorsQueries.GetAll();
+        }
+
+        public List<Editor> GetAllEditorsOrderedByName()
+        {
+            return _editorsQueries.GetAllOrderedByName();
         }
 
         public int CountEditors()

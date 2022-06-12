@@ -10,7 +10,7 @@ namespace VerotMorin.PreciousGames.Web.Controllers
         // GET: Game
         public ActionResult Index()
         {
-            return View(new IndexModel()
+            return View(new IndexViewModel()
             {
                 Games = BusinessManager.Instance.GetAllGames().Select(game => new GameViewModel(game)),
                 GameCount = BusinessManager.Instance.CountGames(),

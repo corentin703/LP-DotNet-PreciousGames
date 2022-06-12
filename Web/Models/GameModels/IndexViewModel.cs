@@ -3,7 +3,7 @@
 namespace VerotMorin.PreciousGames.Web.Models.GameModels
 {
     
-    public class IndexModel
+    public class IndexViewModel
     {
         public IEnumerable<GameViewModel> Games { get; set; }
         public int GameCount { get; set; }

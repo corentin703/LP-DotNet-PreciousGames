@@ -1,58 +1,61 @@
 ﻿@using VerotMorin.PreciousGames.Web.Models.GameModels
-@model IndexModel
+@model IndexViewModel
 
 @{
-    ViewBag.Title = "GameIndex";
+    ViewBag.Title = "Jeux";
 }
 
-<h2>GameIndex</h2>
+<h2>Jeux</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Ajouter un jeu", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayName(nameof(GameViewModel.Name))
+            @Html.DisplayNameFor(model => model.Games.GetEnumerator().Current.Name)
         </th>
         <th>
-            @Html.DisplayName(nameof(GameViewModel.Description))
+            @Html.DisplayNameFor(model => model.Games.GetEnumerator().Current.Description)
         </th>
         <th>
-            @Html.DisplayName(nameof(GameViewModel.ReleaseDate))
+            @Html.DisplayNameFor(model => model.Games.GetEnumerator().Current.ReleaseDate)
         </th>
         <th>
-            @Html.DisplayName(nameof(GameViewModel.Kind))
+            @Html.DisplayNameFor(model => model.Games.GetEnumerator().Current.Kind)
         </th>
         <th>
-            @Html.DisplayName(nameof(GameViewModel.Editor))
+            @Html.DisplayNameFor(model => model.Games.GetEnumerator().Current.Editor)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model.Games) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReleaseDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Kind.Id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Editor.Id)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model.Games)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kind.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Editor.Id)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
 
 </table>
+
+<h6>Il y a @Model.GameCount jeu(x) au total.</h6>

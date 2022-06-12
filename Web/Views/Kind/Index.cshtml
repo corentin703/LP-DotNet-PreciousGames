@@ -1,0 +1,37 @@
+﻿@using VerotMorin.PreciousGames.Web.Models.KindModels
+@model IndexViewModel
+
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>Types de jeux</h2>
+
+<p>
+    @Html.ActionLink("Ajouter un nouveau type", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Kinds.GetEnumerator().Current.Name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var kind in Model.Kinds)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => kind.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Éditer", "Edit", new { id = kind.Id }) |
+                @Html.ActionLink("Détails", "Details", new { id = kind.Id }) |
+                @Html.ActionLink("Supprimer", "Delete", new { id = kind.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<h6>Il y a @Model.KindCount type(s) au total.</h6>

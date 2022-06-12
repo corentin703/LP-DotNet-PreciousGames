@@ -140,9 +140,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\GameModels\GameViewModel.cs" />
-    <Compile Include="Models\GameModels\IndexModel.cs" />
+    <Compile Include="Models\GameModels\IndexViewModel.cs" />
     <Compile Include="Models\EditorModels\EditorViewModel.cs" />
     <Compile Include="Models\EditorModels\IndexViewModel.cs" />
+    <Compile Include="Models\KindModels\IndexViewModel.cs" />
+    <Compile Include="Models\KindModels\KindViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\EditorController.cs" />
     <Compile Include="Controllers\EvaluationController.cs" />
@@ -312,13 +314,17 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Editor\Edit.cshtml" />
     <Content Include="Views\Editor\Delete.cshtml" />
+    <Content Include="Views\Kind\Index.cshtml" />
+    <Content Include="Views\Kind\Details.cshtml" />
+    <Content Include="Views\Kind\Create.cshtml" />
+    <Content Include="Views\Kind\Edit.cshtml" />
+    <Content Include="Views\Kind\Delete.cshtml" />
     <None Include="Web.config.template" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Evaluation\" />
     <Folder Include="Views\Experience\" />
-    <Folder Include="Views\Kind\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
