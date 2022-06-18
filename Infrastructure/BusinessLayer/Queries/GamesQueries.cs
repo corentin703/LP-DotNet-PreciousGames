@@ -35,6 +35,7 @@ namespace VerotMorin.PreciousGames.BusinessLayer.Queries
                 .ToList();
         }
 
+
         public override Game GetById(int id)
         {
             return DbSet
