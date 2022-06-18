@@ -1,0 +1,25 @@
+﻿@using VerotMorin.PreciousGames.Web.Models.KindModels
+@model KindViewModel
+
+@{
+    ViewBag.Title = $"Supprimer {Model.Name}";
+}
+
+<h2>Supprimer @Model.Name</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.Name)
+
+    <h6 class="my-2">
+        Êtes-vous sûr ? <br />
+        Tous les jeux de cet éditeur seront supprimés dans le même temps.
+    </h6>
+
+    <div class="text-end">
+        @Html.ActionLink("Retour", "Index", null, new { @class = "btn btn-secondary" })
+        <input class="btn btn-danger" type="submit" value="Supprimer"/>
+    </div>
+}

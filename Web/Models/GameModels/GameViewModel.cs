@@ -23,8 +23,13 @@ namespace VerotMorin.PreciousGames.Web.Models.GameModels
 
         [Display(Name = "Éditeur")]
         public Editor Editor { get; set; }
-
         
+
+        public GameViewModel()
+        {
+
+        }
+
         public GameViewModel(Game game)
         {
             Name = game.Name;

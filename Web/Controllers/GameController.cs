@@ -1,6 +1,8 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using VerotMorin.PreciousGames.BusinessLayer.Managers;
+using VerotMorin.PreciousGames.ModelLayer.Entities;
 using VerotMorin.PreciousGames.Web.Models.GameModels;
 
 namespace VerotMorin.PreciousGames.Web.Controllers
@@ -10,6 +12,9 @@ namespace VerotMorin.PreciousGames.Web.Controllers
         // GET: Game
         public ActionResult Index()
         {
+            IEnumerable<Game> games = BusinessManager.Instance.GetAllGamesOrderedByName();
+            IEnumerable<GameViewModel> kindViewModels = games.Select(game => new GameViewModel(game));
+
             return View(new IndexViewModel()
             {
                 Games = BusinessManager.Instance.GetAllGames().Select(game => new GameViewModel(game)),
@@ -20,66 +25,100 @@ namespace VerotMorin.PreciousGames.Web.Controllers
         // GET: Game/Details/5
         public ActionResult Details(int id)
         {
+            Game game = BusinessManager.Instance.GetGameById(id);
             return View();
         }
 
         // GET: Game/Create
         public ActionResult Create()
         {
-            return View();
+            ViewBag.Kinds = BusinessManager.Instance.GetAllKinds();
+            return View(new GameEditionViewModel()
+            {
+                Kinds = BusinessManager.Instance.GetAllKinds(),
+                GameViewModel = new GameViewModel()
+        });
         }
 
         // POST: Game/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(GameViewModel gameViewModel)
         {
+            if (!ModelState.IsValid)
+                return View(gameViewModel);
+
             try
             {
-                // TODO: Add insert logic here
+                BusinessManager.Instance.AddGame(new Game()
+                {
+                    Name = gameViewModel.Name,
+                    Description = gameViewModel.Description,
+                    ReleaseDate = gameViewModel.ReleaseDate,
+                    Kind = gameViewModel.Kind,
+                    Editor = gameViewModel.Editor,
+                });
+                BusinessManager.Instance.SaveChanges();
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(gameViewModel);
             }
         }
 
         // GET: Game/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            Game game = BusinessManager.Instance.GetGameById(id);
+            return View(new GameViewModel(game));
         }
 
         // POST: Game/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, GameViewModel gameViewModel)
         {
+            if (!ModelState.IsValid)
+                return View(gameViewModel);
+
+            Game game = BusinessManager.Instance.GetGameById(id);
+
             try
             {
-                // TODO: Add update logic here
+                game.Name = gameViewModel.Name;
+                game.Description = gameViewModel.Description;
+                game.ReleaseDate = gameViewModel.ReleaseDate;
+                game.Editor = gameViewModel.Editor;
+                game.Kind = gameViewModel.Kind;
+                BusinessManager.Instance.UpdateGame(game);
+                BusinessManager.Instance.SaveChanges();
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(gameViewModel);
             }
         }
 
         // GET: Game/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            Game game = BusinessManager.Instance.GetGameById(id);
+            return View(new GameViewModel(game));
         }
 
         // POST: Game/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, GameViewModel gameViewModel)
         {
+            if (!ModelState.IsValid)
+                return View(gameViewModel);
+
             try
             {
-                // TODO: Add delete logic here
+                BusinessManager.Instance.DeleteGame(id);
+                BusinessManager.Instance.SaveChanges();
 
                 return RedirectToAction("Index");
             }

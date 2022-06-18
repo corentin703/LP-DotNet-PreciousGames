@@ -139,6 +139,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\GameModels\GameEditionViewModel.cs" />
     <Compile Include="Models\GameModels\GameViewModel.cs" />
     <Compile Include="Models\GameModels\IndexViewModel.cs" />
     <Compile Include="Models\EditorModels\EditorViewModel.cs" />
@@ -319,6 +320,10 @@
     <Content Include="Views\Kind\Create.cshtml" />
     <Content Include="Views\Kind\Edit.cshtml" />
     <Content Include="Views\Kind\Delete.cshtml" />
+    <Content Include="Views\Game\Create.cshtml" />
+    <Content Include="Views\Game\Delete.cshtml" />
+    <Content Include="Views\Game\Details.cshtml" />
+    <Content Include="Views\Game\Edit.cshtml" />
     <None Include="Web.config.template" />
   </ItemGroup>
   <ItemGroup>
