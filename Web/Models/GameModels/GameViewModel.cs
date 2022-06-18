@@ -6,6 +6,10 @@ namespace VerotMorin.PreciousGames.Web.Models.GameModels
 {
     public class GameViewModel
     {
+        [Display(Name = "Id")]
+        [Required]
+        public int Id { get; set; }
+
         [Display(Name = "Nom")]
         [Required]
         public string Name { get; set; }
@@ -18,25 +22,29 @@ namespace VerotMorin.PreciousGames.Web.Models.GameModels
         [Required]
         public DateTime ReleaseDate { get; set; }
 
-        [Display(Name = "Type")]
-        public Kind Kind { get; set; }
 
+        [Required]
+        [Display(Name = "Type")]
+        public string KindId { get; set; }
+
+        [Required]
         [Display(Name = "Éditeur")]
-        public Editor Editor { get; set; }
-        
+        public string EditorId { get; set; }
+
 
         public GameViewModel()
         {
-
+            //
         }
 
         public GameViewModel(Game game)
         {
+            Id = game.Id;
             Name = game.Name;
             Description = game.Description;
             ReleaseDate = game.ReleaseDate;
-            Kind = game.Kind;
-            Editor = game.Editor;
+            EditorId = game.EditorId.ToString();
+            KindId = game.KindId.ToString();
         }
     }
 }

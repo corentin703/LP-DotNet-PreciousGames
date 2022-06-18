@@ -1,12 +1,15 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace VerotMorin.PreciousGames.Web.Models.GameModels
 {
     
     public class IndexViewModel
     {
-        public IEnumerable<GameViewModel> Games { get; set; }
+        public IEnumerable<GameViewModelFull> Games { get; set; }
         public int GameCount { get; set; }
+
+        [Display(Name = "Recherche")]
         public string SearchString { get; set; }
     }
 }

@@ -32,9 +32,11 @@ namespace VerotMorin.PreciousGames.BusinessLayer.Queries
         public List<Game> Search(string searchString)
         {
             return IncludeRelationships(DbSet)
-                .Where(game => game.Name.ToLower().Contains(searchString.ToLower()))
-                .Where(game => game.Kind.Name.ToLower().Contains(searchString.ToLower()))
-                .Where(game => game.Editor.Name.ToLower().Contains(searchString.ToLower()))
+                .Where(game =>
+                    game.Name.ToLower().Contains(searchString.ToLower()) ||
+                    game.Kind.Name.ToLower().Contains(searchString.ToLower()) ||
+                    game.Editor.Name.ToLower().Contains(searchString.ToLower())
+                )
                 .ToList();
         }
 

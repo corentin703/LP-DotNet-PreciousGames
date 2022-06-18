@@ -8,58 +8,62 @@
 <h2>Ajouter un jeu</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
-    
- 
-<div class="form-horizontal">
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group my-2">
-        @Html.LabelFor(model => model.GameViewModel.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.GameViewModel.Name, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.GameViewModel.Name, "", new { @class = "text-danger" })
+    <div class="form-horizontal">
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.Game.Id)
+        
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        
+        <div class="form-group my-2">
+            @Html.LabelFor(model => model.Game.EditorId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Game.EditorId, Model.Editors, null, new { @class = "form-select" })
+            </div>
+        </div>
+        
+        <div class="form-group my-2">
+            @Html.LabelFor(model => model.Game.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Game.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Game.Name, "", new { @class = "text-danger" })
+            </div>
+
         </div>
 
-    </div>
+        <div class="form-group my-2">
+            @Html.LabelFor(model => model.Game.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Game.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Game.Description, "", new { @class = "text-danger" })
+            </div>
 
-    <div class="form-group my-2">
-        @Html.LabelFor(model => model.GameViewModel.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.GameViewModel.Description, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.GameViewModel.Description, "", new { @class = "text-danger" })
         </div>
 
-    </div>
+        <div class="form-group my-2">
+            @Html.LabelFor(model => model.Game.ReleaseDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Game.ReleaseDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Game.ReleaseDate, "", new { @class = "text-danger" })
+            </div>
 
-    <div class="form-group my-2">
-        @Html.LabelFor(model => model.GameViewModel.ReleaseDate, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.GameViewModel.ReleaseDate, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.GameViewModel.ReleaseDate, "", new { @class = "text-danger" })
         </div>
 
-    </div>
-
-    @Html.AntiForgeryToken()
-    @Html.HiddenFor(model => model.GameViewModel.Kind.Id)
-
-    <div class="form-group my-2">
-        @Html.LabelFor(model => model.GameViewModel.Kind, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.Kinds,
-            new SelectList(ViewBag.Kinds, new SelectList(ViewBag.Kinds, "Name")))
+        <div class="form-group my-2">
+            @Html.LabelFor(model => model.Game.KindId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Game.KindId, Model.Kinds, null, new { @class = "form-select" })
+            </div>
         </div>
 
-    </div>
-
-    <div class="form-group my-2">
-        <div class="col-md-offset-2 col-md-10">
-            @Html.ActionLink("Retour", "Index", null, new { @class = "btn btn-secondary" })
-            <input type="submit" value="Créer" class="btn btn-default" />
+        <div class="form-group my-2">
+            <div class="col-md-offset-2 col-md-10">
+                @Html.ActionLink("Retour", "Index", null, new { @class = "btn btn-secondary" })
+                <input type="submit" value="Créer" class="btn btn-default" />
+            </div>
         </div>
     </div>
-</div>
 }
 
 @section Scripts {

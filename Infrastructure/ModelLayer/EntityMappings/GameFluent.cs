@@ -25,6 +25,7 @@ namespace VerotMorin.PreciousGames.ModelLayer.EntityMappings
 
             Property(e => e.ReleaseDate)
                 .HasColumnName("JEU_DATESORTIE")
+                .HasColumnType("DATETIME2")
                 .IsRequired();
 
             Property(e => e.KindId)

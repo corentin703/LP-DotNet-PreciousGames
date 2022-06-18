@@ -21,6 +21,7 @@ namespace VerotMorin.PreciousGames.ModelLayer.EntityMappings
 
             Property(e => e.Date)
                 .HasColumnName("EVAL_DATE")
+                .HasColumnType("DATETIME2")
                 .IsRequired();
 
             Property(e => e.Mark)

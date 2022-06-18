@@ -1,5 +1,5 @@
-﻿@using VerotMorin.PreciousGames.Web.Models.KindModels
-@model KindViewModel
+﻿@using VerotMorin.PreciousGames.Web.Models.GameModels
+@model GameViewModel
 
 @{
     ViewBag.Title = $"Supprimer {Model.Name}";
@@ -12,10 +12,14 @@
     @Html.AntiForgeryToken()
     @Html.HiddenFor(model => model.Id)
     @Html.HiddenFor(model => model.Name)
+    @Html.HiddenFor(model => model.Description)
+    @Html.HiddenFor(model => model.ReleaseDate)
+    @Html.HiddenFor(model => model.EditorId)
+    @Html.HiddenFor(model => model.KindId)
 
     <h6 class="my-2">
-        Êtes-vous sûr ? <br />
-        Tous les jeux de cet éditeur seront supprimés dans le même temps.
+        Êtes-vous sûr ?
+        Cela va supprimer les évaluations et expériences associées. <br />
     </h6>
 
     <div class="text-end">

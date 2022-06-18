@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using VerotMorin.PreciousGames.BusinessLayer.Managers;
@@ -12,7 +13,7 @@ namespace VerotMorin.PreciousGames.Web.Controllers
         // GET: Game
         public ActionResult Index(string searchString = null)
         {
-            List<Game> games = searchString == null 
+            List<Game> games = string.IsNullOrEmpty(searchString)
                 ? BusinessManager.Instance.GetAllGamesOrderedByName()
                 : BusinessManager.Instance.SearchGames(searchString);
 
@@ -20,7 +21,7 @@ namespace VerotMorin.PreciousGames.Web.Controllers
 
             return View(new IndexViewModel()
             {
-                Games = games.Select(game => new GameViewModel(game)),
+                Games = games.Select(game => new GameViewModelFull(game)),
                 GameCount = BusinessManager.Instance.CountGames(),
                 SearchString = searchString,
             });
@@ -36,30 +37,30 @@ namespace VerotMorin.PreciousGames.Web.Controllers
         // GET: Game/Create
         public ActionResult Create()
         {
-            ViewBag.Kinds = BusinessManager.Instance.GetAllKinds();
             return View(new GameEditionViewModel()
             {
-                Kinds = BusinessManager.Instance.GetAllKinds(),
-                GameViewModel = new GameViewModel()
-        });
+                Editors = GetEditorSelectListItem(),
+                Kinds = GetKindSelectListItem(),
+                Game = new GameViewModel()
+            });
         }
 
         // POST: Game/Create
         [HttpPost]
-        public ActionResult Create(GameViewModel gameViewModel)
+        public ActionResult Create(GameEditionViewModel gameEditionViewModel)
         {
             if (!ModelState.IsValid)
-                return View(gameViewModel);
+                return View(gameEditionViewModel);
 
             try
             {
                 BusinessManager.Instance.AddGame(new Game()
                 {
-                    Name = gameViewModel.Name,
-                    Description = gameViewModel.Description,
-                    ReleaseDate = gameViewModel.ReleaseDate,
-                    Kind = gameViewModel.Kind,
-                    Editor = gameViewModel.Editor,
+                    Name = gameEditionViewModel.Game.Name,
+                    Description = gameEditionViewModel.Game.Description,
+                    ReleaseDate = gameEditionViewModel.Game.ReleaseDate,
+                    KindId = int.Parse(gameEditionViewModel.Game.KindId),
+                    EditorId = int.Parse(gameEditionViewModel.Game.EditorId),
                 });
                 BusinessManager.Instance.SaveChanges();
 
@@ -67,7 +68,7 @@ namespace VerotMorin.PreciousGames.Web.Controllers
             }
             catch
             {
-                return View(gameViewModel);
+                return View(gameEditionViewModel);
             }
         }
 
@@ -75,25 +76,31 @@ namespace VerotMorin.PreciousGames.Web.Controllers
         public ActionResult Edit(int id)
         {
             Game game = BusinessManager.Instance.GetGameById(id);
-            return View(new GameViewModel(game));
+
+            return View(new GameEditionViewModel()
+            {
+                Editors = GetEditorSelectListItem(),
+                Kinds = GetKindSelectListItem(),
+                Game = new GameViewModel(game)
+            });
         }
 
         // POST: Game/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, GameViewModel gameViewModel)
+        public ActionResult Edit(int id, GameEditionViewModel gameEditionViewModel)
         {
             if (!ModelState.IsValid)
-                return View(gameViewModel);
+                return View(gameEditionViewModel);
 
             Game game = BusinessManager.Instance.GetGameById(id);
 
             try
             {
-                game.Name = gameViewModel.Name;
-                game.Description = gameViewModel.Description;
-                game.ReleaseDate = gameViewModel.ReleaseDate;
-                game.Editor = gameViewModel.Editor;
-                game.Kind = gameViewModel.Kind;
+                game.Name = gameEditionViewModel.Game.Name;
+                game.Description = gameEditionViewModel.Game.Description;
+                game.ReleaseDate = gameEditionViewModel.Game.ReleaseDate;
+                game.EditorId = int.Parse(gameEditionViewModel.Game.EditorId);
+                game.KindId = int.Parse(gameEditionViewModel.Game.KindId);
                 BusinessManager.Instance.UpdateGame(game);
                 BusinessManager.Instance.SaveChanges();
 
@@ -101,7 +108,7 @@ namespace VerotMorin.PreciousGames.Web.Controllers
             }
             catch
             {
-                return View(gameViewModel);
+                return View(gameEditionViewModel);
             }
         }
 
@@ -109,7 +116,7 @@ namespace VerotMorin.PreciousGames.Web.Controllers
         public ActionResult Delete(int id)
         {
             Game game = BusinessManager.Instance.GetGameById(id);
-            return View(new GameViewModel(game));
+            return View(new GameViewModelFull(game));
         }
 
         // POST: Game/Delete/5
@@ -130,6 +137,36 @@ namespace VerotMorin.PreciousGames.Web.Controllers
             {
                 return View();
             }
+        }
+
+        private List<SelectListItem> GetEditorSelectListItem()
+        {
+            List<Editor> editors  = BusinessManager.Instance.GetAllEditors();
+            List<SelectListItem> editorListItems = editors.Select(editor =>
+            {
+                SelectListItem listItem = new SelectListItem();
+                listItem.Text = editor.Name;
+                listItem.Value = editor.Id.ToString();
+
+                return listItem;
+            }).ToList();
+
+            return editorListItems;
+        }
+
+        private List<SelectListItem> GetKindSelectListItem()
+        {
+            List<Kind> kinds = BusinessManager.Instance.GetAllKinds();
+            List<SelectListItem> kindListItems = kinds.Select(kind =>
+            {
+                SelectListItem listItem = new SelectListItem();
+                listItem.Text = kind.Name;
+                listItem.Value = kind.Id.ToString();
+
+                return listItem;
+            }).ToList();
+
+            return kindListItems;
         }
     }
 }
