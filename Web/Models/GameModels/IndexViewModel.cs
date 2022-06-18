@@ -7,5 +7,6 @@ namespace VerotMorin.PreciousGames.Web.Models.GameModels
     {
         public IEnumerable<GameViewModel> Games { get; set; }
         public int GameCount { get; set; }
+        public string SearchString { get; set; }
     }
 }

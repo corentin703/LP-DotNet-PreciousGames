@@ -7,9 +7,17 @@
 
 <h2>Jeux</h2>
 
-<p>
+<div class="d-flex justify-content-between">
     @Html.ActionLink("Ajouter un jeu", "Create")
-</p>
+
+    @using (Html.BeginForm("Index", "Game", FormMethod.Get, new { @class = "d-flex text-right" }))
+    {
+        @Html.LabelFor(model => model.SearchString, new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.SearchString, new { @class = "form-control" })
+        <input class="btn btn-primary" type="submit" value="Mettre à jour" />
+    }
+</div>
+
 <table class="table">
     <tr>
         <th>

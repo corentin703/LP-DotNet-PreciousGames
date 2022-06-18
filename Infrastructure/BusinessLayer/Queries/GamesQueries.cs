@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
+using System.Globalization;
 using System.Linq;
 using VerotMorin.PreciousGames.BusinessLayer.Queries.Common;
 using VerotMorin.PreciousGames.ModelLayer.Contexts;
@@ -16,33 +18,39 @@ namespace VerotMorin.PreciousGames.BusinessLayer.Queries
 
         public override List<Game> GetAll()
         {
-            return DbSet
-                .Include(game => game.Editor)
-                .Include(game => game.Evaluations)
-                .Include(game => game.Experiences)
-                .Include(game => game.Kind)
+            return IncludeRelationships(DbSet)
                 .ToList();
         }
 
         public List<Game> GetAllOrderedByName()
         {
-            return DbSet
-                .Include(game => game.Editor)
-                .Include(game => game.Evaluations)
-                .Include(game => game.Experiences)
-                .Include(game => game.Kind)
+            return IncludeRelationships(DbSet)
                 .OrderBy(game => game.Name)
+                .ToList();
+        }
+
+        public List<Game> Search(string searchString)
+        {
+            return IncludeRelationships(DbSet)
+                .Where(game => game.Name.ToLower().Contains(searchString.ToLower()))
+                .Where(game => game.Kind.Name.ToLower().Contains(searchString.ToLower()))
+                .Where(game => game.Editor.Name.ToLower().Contains(searchString.ToLower()))
                 .ToList();
         }
 
         public override Game GetById(int id)
         {
-            return DbSet
+            return IncludeRelationships(DbSet)
+                .FirstOrDefault(game => game.Id == id);
+        }
+
+        private IQueryable<Game> IncludeRelationships(IQueryable<Game> queryable)
+        {
+            return queryable
                 .Include(game => game.Editor)
                 .Include(game => game.Evaluations)
                 .Include(game => game.Experiences)
-                .Include(game => game.Kind)
-                .FirstOrDefault(game => game.Id == id);
+                .Include(game => game.Kind);
         }
     }
 }

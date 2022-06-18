@@ -10,15 +10,19 @@ namespace VerotMorin.PreciousGames.Web.Controllers
     public class GameController : Controller
     {
         // GET: Game
-        public ActionResult Index()
+        public ActionResult Index(string searchString = null)
         {
-            IEnumerable<Game> games = BusinessManager.Instance.GetAllGamesOrderedByName();
+            List<Game> games = searchString == null 
+                ? BusinessManager.Instance.GetAllGamesOrderedByName()
+                : BusinessManager.Instance.SearchGames(searchString);
+
             IEnumerable<GameViewModel> kindViewModels = games.Select(game => new GameViewModel(game));
 
             return View(new IndexViewModel()
             {
-                Games = BusinessManager.Instance.GetAllGames().Select(game => new GameViewModel(game)),
+                Games = games.Select(game => new GameViewModel(game)),
                 GameCount = BusinessManager.Instance.CountGames(),
+                SearchString = searchString,
             });
         }
 

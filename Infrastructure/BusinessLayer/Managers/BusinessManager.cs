@@ -49,6 +49,11 @@ namespace VerotMorin.PreciousGames.BusinessLayer.Managers
         {
             return _gamesQueries.GetAllOrderedByName();
         }
+        
+        public List<Game> SearchGames(string searchString)
+        {
+            return _gamesQueries.Search(searchString);
+        }
 
         public int CountGames()
         {
