@@ -1,0 +1,55 @@
+﻿@using System.Globalization
+@using VerotMorin.PreciousGames.Web.Models.EvaluationModels
+@model IndexViewModel
+
+@{
+    ViewBag.Title = "Évaluations";
+}
+
+<h2>View</h2>
+
+<p>
+    @Html.ActionLink("Ajouter une évaluation", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Evaluations.GetEnumerator().Current.EvaluatorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Evaluations.GetEnumerator().Current.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Evaluations.GetEnumerator().Current.Game.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Evaluations.GetEnumerator().Current.Mark)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (EvaluationViewModel evaluation in Model.Evaluations) {
+    <tr>
+        <th>
+            @Html.DisplayFor(model => model.Evaluations.GetEnumerator().Current.EvaluatorName)
+        </th>
+        <th>
+            @Html.Display(evaluation.Date.ToString(CultureInfo.CurrentUICulture))
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.Evaluations.GetEnumerator().Current.Game.Name)
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.Evaluations.GetEnumerator().Current.Mark)
+        </th>
+        <td>
+            @Html.ActionLink("Éditer", "Edit", new {id = evaluation.Id}) |
+            @Html.ActionLink("Détails", "Details", new {id = evaluation.Id}) |
+            @Html.ActionLink("Supprimer", "Delete", new {id = evaluation.Id})
+        </td>
+    </tr>
+}
+
+</table>
+
+<h6>Il y a @Model.EvaluationCount évaluation(s) au total.</h6>
