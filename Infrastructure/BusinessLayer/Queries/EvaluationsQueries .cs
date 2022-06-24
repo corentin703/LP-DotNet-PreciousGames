@@ -14,11 +14,15 @@ namespace VerotMorin.PreciousGames.BusinessLayer.Queries
             //
         }
 
-        public List<Evaluation> GetAllOrderedByDate()
+        public List<Evaluation> GetAllOrderedByDate(int? toTake = null)
         {
-            return DbSet
-                .Include(evaluation => evaluation.Game)
-                .ToList();
+            IQueryable<Evaluation> query = DbSet
+                .Include(evaluation => evaluation.Game);
+
+            if (toTake.HasValue) 
+                query = query.Take(toTake.Value);
+
+            return query.ToList();
         }
     }
 }

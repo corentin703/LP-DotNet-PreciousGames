@@ -46,6 +46,17 @@ namespace VerotMorin.PreciousGames.BusinessLayer.Queries
                 .FirstOrDefault(game => game.Id == id);
         }
 
+        public List<Game> GetBestRated(int? toTake = null)
+        {
+            IQueryable<Game> query = IncludeRelationships(DbSet)
+                .OrderByDescending(game => game.Evaluations.Average(evaluation => evaluation.Mark));
+
+            if (toTake.HasValue)
+                query = query.Take(toTake.Value);
+
+            return query.ToList();
+        }
+
         private IQueryable<Game> IncludeRelationships(IQueryable<Game> queryable)
         {
             return queryable
@@ -54,5 +65,6 @@ namespace VerotMorin.PreciousGames.BusinessLayer.Queries
                 .Include(game => game.Experiences)
                 .Include(game => game.Kind);
         }
+
     }
 }

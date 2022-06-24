@@ -84,6 +84,11 @@ namespace VerotMorin.PreciousGames.BusinessLayer.Managers
             _gamesQueries.Delete(id);
         }
 
+        public List<Game> GetBestRatedGames(int? toTake = null)
+        {
+            return _gamesQueries.GetBestRated(toTake);
+        }
+
         #endregion
 
         #region Kinds
@@ -191,6 +196,10 @@ namespace VerotMorin.PreciousGames.BusinessLayer.Managers
             return _evaluationsQueries.GetAllOrderedByDate();
         }
 
+        public List<Evaluation> GetAllEvaluationOrderedByDate(int? toTake = null)
+        {
+            return _evaluationsQueries.GetAllOrderedByDate(toTake);
+        }
 
         #endregion
 
