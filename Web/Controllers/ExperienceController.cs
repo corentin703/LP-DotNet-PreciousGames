@@ -41,17 +41,32 @@ namespace VerotMorin.PreciousGames.Web.Controllers
 
         // POST: Experience/Create
         [HttpPost]
-        public ActionResult Create(int gameId, FormCollection collection)
+        public ActionResult Create(int gameId, ExperienceViewModel experienceViewModel)
         {
+            // faire le isvalid
+            if (!ModelState.IsValid)
+                return View(experienceViewModel); 
+
             try
             {
                 // TODO: Add insert logic here
+                BusinessManager.Instance.AddExperience(new Experience()
+                {
+                    
+                    Game =  BusinessManager.Instance.GetGameById( experienceViewModel.GameId),
+                    GameId = experienceViewModel.GameId,
+                    Player = experienceViewModel.Player,
+                    PlayedTime = experienceViewModel.PlayedTime,
+                    Percentage = experienceViewModel.Percentage,
+                });
+                BusinessManager.Instance.SaveChanges();
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                System.Diagnostics.Debug.WriteLine("erreur");
+                return View(experienceViewModel);
             }
         }
 

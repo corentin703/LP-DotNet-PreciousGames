@@ -32,39 +32,51 @@
         <th>
             @Html.DisplayNameFor(model => model.GamesTopRated.GetEnumerator().Current.ReleaseDate)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.GamesTopRated.GetEnumerator().Current.Kind)
-        </th>
+        </th>*@
         <th>
+            @Html.DisplayNameFor(model => model.GamesTopRated.GetEnumerator().Current.KindId)
+        </th>
+        @*<th>
             @Html.DisplayNameFor(model => model.GamesTopRated.GetEnumerator().Current.Editor)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.GamesTopRated.GetEnumerator().Current.EditorId)
         </th>
         <th></th>
     </tr>
 
     @foreach (var item in Model.GamesTopRated)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReleaseDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Kind.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Editor.Id)
-            </td>
-            @*<td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                </td>*@
-        </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Description)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ReleaseDate)
+    </td>
+    @*<td>
+            @Html.DisplayFor(modelItem => item.Kind.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Editor.Id)
+        </td>*@
+    <td>
+        @Html.DisplayFor(modelItem => item.KindId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.EditorId)
+    </td>
+    @*<td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>*@
+</tr>
     }
 </table>
 
@@ -84,11 +96,17 @@
         <th>
             @Html.DisplayNameFor(model => model.GamesTopRated.GetEnumerator().Current.ReleaseDate)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.GamesTopRated.GetEnumerator().Current.Kind)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.GamesTopRated.GetEnumerator().Current.Editor)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.GamesTopRated.GetEnumerator().Current.KindId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GamesTopRated.GetEnumerator().Current.EditorId)
         </th>
         <th></th>
     </tr>

@@ -13,6 +13,7 @@ namespace VerotMorin.PreciousGames.BusinessLayer.Managers
         private readonly KindsQueries _kindsQueries;
         private readonly EditorsQueries _editorsQueries;
         private readonly EvaluationsQueries _evaluationsQueries;
+        private readonly ExperiencesQueries _experiencesQueries;
 
         private BusinessManager()
         {
@@ -21,6 +22,7 @@ namespace VerotMorin.PreciousGames.BusinessLayer.Managers
             _kindsQueries = new KindsQueries(_preciousGameContext);
             _editorsQueries = new EditorsQueries(_preciousGameContext);
             _evaluationsQueries = new EvaluationsQueries(_preciousGameContext);
+            _experiencesQueries = new ExperiencesQueries(_preciousGameContext);
         }
 
         private static BusinessManager _instance;
@@ -172,6 +174,16 @@ namespace VerotMorin.PreciousGames.BusinessLayer.Managers
         public List<Evaluation> GetAllOrderedByDate()
         {
             return _evaluationsQueries.GetAllOrderedByDate();
+        }
+
+
+        #endregion
+
+        #region Experiences
+
+        public Experience AddExperience(Experience experience)
+        {
+            return _experiencesQueries.Add(experience);
         }
         #endregion
 
