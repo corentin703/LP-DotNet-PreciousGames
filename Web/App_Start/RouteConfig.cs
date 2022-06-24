@@ -11,7 +11,7 @@ namespace VerotMorin.PreciousGames.Web
 
             routes.MapRoute(
                 name: "GameSpecific",
-                url: "Game/{gameId}/{controller}/{action}/{id}",
+                url: "Game/Rel/{gameId}/{controller}/{action}/{id}",
                 defaults: new { controller = "Evaluation", action = "Index", id = UrlParameter.Optional }
             );
 
