@@ -139,6 +139,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\EvaluationModels\EvaluationViewModel.cs" />
     <Compile Include="Models\GameModels\GameEditionViewModel.cs" />
     <Compile Include="Models\GameModels\GameViewModel.cs" />
     <Compile Include="Models\GameModels\IndexViewModel.cs" />

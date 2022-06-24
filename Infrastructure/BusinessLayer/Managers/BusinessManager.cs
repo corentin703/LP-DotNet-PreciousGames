@@ -12,6 +12,7 @@ namespace VerotMorin.PreciousGames.BusinessLayer.Managers
         private readonly GamesQueries _gamesQueries;
         private readonly KindsQueries _kindsQueries;
         private readonly EditorsQueries _editorsQueries;
+        private readonly EvaluationsQueries _evaluationsQueries;
 
         private BusinessManager()
         {
@@ -19,6 +20,7 @@ namespace VerotMorin.PreciousGames.BusinessLayer.Managers
             _gamesQueries = new GamesQueries(_preciousGameContext);
             _kindsQueries = new KindsQueries(_preciousGameContext);
             _editorsQueries = new EditorsQueries(_preciousGameContext);
+            _evaluationsQueries = new EvaluationsQueries(_preciousGameContext);
         }
 
         private static BusinessManager _instance;
@@ -153,6 +155,13 @@ namespace VerotMorin.PreciousGames.BusinessLayer.Managers
             _editorsQueries.Delete(id);
         }
 
+        #endregion
+
+        #region Evaluations
+        public List<Evaluation> GetAllOrderedByDate()
+        {
+            return _evaluationsQueries.GetAllOrderedByDate();
+        }
         #endregion
 
         public void Dispose()

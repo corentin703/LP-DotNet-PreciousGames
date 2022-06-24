@@ -94,27 +94,25 @@
     </tr>
 
 
-    @foreach (var item in Model.GamesBestEvaluation)
+    @foreach (var item in Model.BestEvaluations)
     {
 
 
 
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @Html.DisplayFor(modelItem => item.Game)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
+                @Html.DisplayFor(modelItem => item.Mark)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ReleaseDate)
+                @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Kind.Id)
+                @Html.DisplayFor(modelItem => item.EvaluatorName)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Editor.Id)
-            </td>
+            
             @*<td>
                     @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
                     @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
