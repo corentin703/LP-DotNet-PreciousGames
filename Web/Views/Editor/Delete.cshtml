@@ -19,7 +19,7 @@
     </h6>
 
     <div class="text-end">
-        <a class="btn btn-secondary" href="@Url.Action("Index")">Retour</a>
-        <input class="btn btn-danger" type="submit" value="Supprimer" />
+        @Html.ActionLink("Retour", "Index", null, new { @class = "btn btn-secondary" })
+        <input class="btn btn-danger" type="submit" value="Supprimer"/>
     </div>
 }

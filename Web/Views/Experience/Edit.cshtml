@@ -1,10 +1,10 @@
 ﻿@model VerotMorin.PreciousGames.Web.Models.ExperienceModels.ExperienceViewModel
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Édition";
 }
 
-<h2>Edit</h2>
+<h2>Édition</h2>
 
 
 @using (Html.BeginForm())
@@ -12,47 +12,37 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>ExperienceViewModel</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
 
         <div class="form-group">
             @Html.LabelFor(model => model.Player, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Player, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Player, "", new { @class = "text-danger" })
-            </div>
+            @Html.EditorFor(model => model.Player, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Player, "", new { @class = "text-danger" })
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.PlayedTime, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PlayedTime, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PlayedTime, "", new { @class = "text-danger" })
-            </div>
+            @Html.EditorFor(model => model.PlayedTime, new { htmlAttributes = new { @class = "form-control", type = "time" } })
+            @Html.ValidationMessageFor(model => model.PlayedTime, "", new { @class = "text-danger" })
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Percentage, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Percentage, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Percentage, "", new { @class = "text-danger" })
-            </div>
+            @Html.EditorFor(model => model.Percentage, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Percentage, "", new { @class = "text-danger" })
         </div>
 
-       
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
+        <div class="mt-4 form-group text-end">
+            @Html.ActionLink("Retour", "Index", null, new { @class = "btn btn-secondary" })
+            <input class="btn btn-primary" type="submit" value="Sauvegarder" />
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Retour", "Index")
 </div>
 
 @section Scripts {

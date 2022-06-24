@@ -20,7 +20,7 @@ namespace VerotMorin.PreciousGames.Web.Controllers
 
             return View(new Models.HomeModels.IndexViewModel()
             {
-                BestEvaluations = lastEvaluationsViewModels,
+                LastEvaluations = lastEvaluationsViewModels,
                 GamesTopRated = gamesTopRatedViewModels,
             });
         }

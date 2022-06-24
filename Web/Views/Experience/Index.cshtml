@@ -2,13 +2,13 @@
 @model IndexViewModel
 
 @{
-    ViewBag.Title = "View";
+    ViewBag.Title = "Expériences";
 }
 
-<h2>View</h2>
+<h2>Expériences</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Ajouter une expérience", "Create")
 </p>
 <table class="table">
     <tr>
@@ -42,9 +42,9 @@
             @Html.DisplayFor(modelItem => item.GameId)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            @Html.ActionLink("Édition", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Détails", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Suppression", "Delete", new { id = item.Id })
         </td>
     </tr>
 }

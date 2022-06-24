@@ -10,24 +10,23 @@ namespace VerotMorin.PreciousGames.Web.Models.ExperienceModels
         [Display(Name = "Id")]
         public int Id { get; set; }
 
-        [Display(Name = "Player")]
+        [Display(Name = "Joueur")]
         [Required]
         public string Player { get; set; }
 
 
-        [Display(Name = "PlayerTime")]
+        [Display(Name = "Durée de jeu")]
         [Required]
         public TimeSpan PlayedTime { get; set; }
 
-        [Display(Name = "Percentage")]
+        [Display(Name = "Pourcentage")]
         [Required]
         public float Percentage { get; set; }
 
-        [Display(Name = "GameId")]
+        [Display(Name = "Jeu")]
         [Required]
         public int GameId { get; set; }
 
-        [Display(Name = "Game")]
         public GameViewModel Game { get; set; }
 
 
@@ -35,6 +34,7 @@ namespace VerotMorin.PreciousGames.Web.Models.ExperienceModels
         {
             //
         }
+
         public ExperienceViewModel(Experience experience)
         {
             Id = experience.Id;
@@ -44,9 +44,7 @@ namespace VerotMorin.PreciousGames.Web.Models.ExperienceModels
             GameId = experience.GameId;
 
             if (experience.Game != null)
-            {
                 Game = new GameViewModel(experience.Game);
-            }
         }
     }
 }

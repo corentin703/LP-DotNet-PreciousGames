@@ -7,7 +7,7 @@
 
 <h2>Supression d'une évaluation</h2>
 
-<h3>Êtes-vous sûr de vouloir le supprimer</h3>
+<h3>Êtes-vous sûr de vouloir le supprimer ?</h3>
 <div>
     <h4>Évaluation de @Model.Game.Name par @Model.EvaluatorName :</h4>
     <hr />
@@ -41,9 +41,9 @@
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Supprimer" class="btn btn-default" /> |
-            @Html.ActionLink("Retour", "Index")
+        <div class="text-end">
+            @Html.ActionLink("Retour", "Index", null, new { @class = "btn btn-secondary" })
+            <input class="btn btn-danger" type="submit" value="Supprimer"/>
         </div>
     }
 </div>

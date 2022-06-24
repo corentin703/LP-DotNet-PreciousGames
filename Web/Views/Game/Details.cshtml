@@ -51,9 +51,11 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Évaluations", "Index", "Evaluation", new { gameId = Model.Id, }, null) |
-    @Html.ActionLink("Expériences", "Index", "Experience", new { gameId = Model.Id, }, null) |
-    @Html.ActionLink("Edit", "Edit", new {id = Model.Id}) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+
+<div class="text-end">
+    @Html.ActionLink("Évaluations", "Index", "Evaluation", new { gameId = Model.Id, }, new { @class = "btn btn-success" })
+    @Html.ActionLink("Expériences", "Index", "Experience", new { gameId = Model.Id, }, new { @class = "btn btn-success" })
+    @Html.ActionLink("Retour", "Index", null, new {@class = "btn btn-secondary"})
+    @Html.ActionLink("Éditer", "Edit", new {id = Model.Id}, new {@class = "btn btn-primary"})
+</div>

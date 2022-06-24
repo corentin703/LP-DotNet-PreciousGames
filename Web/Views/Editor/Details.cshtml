@@ -6,15 +6,20 @@
 
 <h2>Détail de l'éditeur @Model.Name</h2>
 
-<div class="container">
-    <div class="row">
-        <div class="col">
-            Nom
-        </div>
-        <div class="col">
-            @Model.Name
-        </div>
-    </div>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+    </dl>
 </div>
 
-
+<div class="text-end">
+    @Html.ActionLink("Retour", "Index", null, new {@class = "btn btn-secondary"})
+    @Html.ActionLink("Éditer", "Edit", new { id = Model.Id }, new {@class = "btn btn-primary"})
+</div>
