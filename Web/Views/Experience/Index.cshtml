@@ -1,0 +1,52 @@
+﻿@using VerotMorin.PreciousGames.Web.Models.ExperienceModels
+@model IndexViewModel
+
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>View</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Experiences.GetEnumerator().Current.Player)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Experiences.GetEnumerator().Current.PlayedTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Experiences.GetEnumerator().Current.Percentage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Experiences.GetEnumerator().Current.GameId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Experiences) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Player)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlayedTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Percentage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GameId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        </td>
+    </tr>
+}
+
+</table>

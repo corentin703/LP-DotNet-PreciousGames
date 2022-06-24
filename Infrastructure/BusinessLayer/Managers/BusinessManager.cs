@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using VerotMorin.PreciousGames.BusinessLayer.Queries;
 using VerotMorin.PreciousGames.ModelLayer.Contexts;
 using VerotMorin.PreciousGames.ModelLayer.Entities;
@@ -159,6 +160,16 @@ namespace VerotMorin.PreciousGames.BusinessLayer.Managers
         }
 
         #endregion
+
+        #region Evaluation
+
+        public Evaluation GetEvaluationById(int id)
+        {
+            return _
+        }
+
+        #endregion
+
 
         public void Dispose()
         {

@@ -139,6 +139,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ExperienceModels\ExperienceViewModel.cs" />
+    <Compile Include="Models\ExperienceModels\IndexViewModel.cs" />
     <Compile Include="Models\GameModels\GameCreateViewModel.cs" />
     <Compile Include="Models\EvaluationModels\EvaluationViewModel.cs" />
     <Compile Include="Models\EvaluationModels\IndexViewModel.cs" />
@@ -329,11 +331,12 @@
     <Content Include="Views\Evaluation\Index.cshtml" />
     <Content Include="Views\Evaluation\Details.cshtml" />
     <Content Include="Views\Game\Edit.cshtml" />
+    <Content Include="Views\Experience\Index.cshtml" />
+    <Content Include="Views\Evaluation\Create.cshtml" />
     <None Include="Web.config.template" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Experience\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
