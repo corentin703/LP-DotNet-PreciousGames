@@ -144,11 +144,14 @@
     <Compile Include="Models\GameModels\GameCreateViewModel.cs" />
     <Compile Include="Models\EvaluationModels\EvaluationViewModel.cs" />
     <Compile Include="Models\EvaluationModels\IndexViewModel.cs" />
+    <Compile Include="Models\EvaluationModels\EvaluationViewModel.cs" />
     <Compile Include="Models\GameModels\GameViewModel.cs" />
     <Compile Include="Models\GameModels\GameViewModelFull.cs" />
     <Compile Include="Models\GameModels\IndexViewModel.cs" />
     <Compile Include="Models\EditorModels\EditorViewModel.cs" />
     <Compile Include="Models\EditorModels\IndexViewModel.cs" />
+    <Compile Include="Models\HomeModels\IndexViewModel.cs" />
+    <Compile Include="Models\HomeModels\HomeViewModel.cs" />
     <Compile Include="Models\KindModels\IndexViewModel.cs" />
     <Compile Include="Models\KindModels\KindViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

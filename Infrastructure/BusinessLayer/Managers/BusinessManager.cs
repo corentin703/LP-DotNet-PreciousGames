@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using VerotMorin.PreciousGames.BusinessLayer.Queries;
 using VerotMorin.PreciousGames.ModelLayer.Contexts;
 using VerotMorin.PreciousGames.ModelLayer.Entities;
@@ -13,6 +12,7 @@ namespace VerotMorin.PreciousGames.BusinessLayer.Managers
         private readonly GamesQueries _gamesQueries;
         private readonly KindsQueries _kindsQueries;
         private readonly EditorsQueries _editorsQueries;
+        private readonly EvaluationsQueries _evaluationsQueries;
 
         private BusinessManager()
         {
@@ -20,6 +20,7 @@ namespace VerotMorin.PreciousGames.BusinessLayer.Managers
             _gamesQueries = new GamesQueries(_preciousGameContext);
             _kindsQueries = new KindsQueries(_preciousGameContext);
             _editorsQueries = new EditorsQueries(_preciousGameContext);
+            _evaluationsQueries = new EvaluationsQueries(_preciousGameContext);
         }
 
         private static BusinessManager _instance;
@@ -161,15 +162,18 @@ namespace VerotMorin.PreciousGames.BusinessLayer.Managers
 
         #endregion
 
-        #region Evaluation
+        #region Evaluations
 
         public Evaluation GetEvaluationById(int id)
         {
-            return _
+            return _evaluationsQueries.GetById(id);
         }
 
+        public List<Evaluation> GetAllOrderedByDate()
+        {
+            return _evaluationsQueries.GetAllOrderedByDate();
+        }
         #endregion
-
 
         public void Dispose()
         {
