@@ -1,0 +1,49 @@
+﻿@using VerotMorin.PreciousGames.Web.Models.EvaluationModels
+@model EvaluationViewModel
+
+@{
+    ViewBag.Title = "Suppression";
+}
+
+<h2>Supression d'une évaluation</h2>
+
+<h3>Êtes-vous sûr de vouloir le supprimer</h3>
+<div>
+    <h4>Évaluation de @Model.Game.Name par @Model.EvaluatorName :</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EvaluatorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EvaluatorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mark)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Supprimer" class="btn btn-default" /> |
+            @Html.ActionLink("Retour", "Index")
+        </div>
+    }
+</div>

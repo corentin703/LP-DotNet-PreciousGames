@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using VerotMorin.PreciousGames.BusinessLayer.Managers;
 using VerotMorin.PreciousGames.ModelLayer.Entities;
@@ -25,9 +26,12 @@ namespace VerotMorin.PreciousGames.Web.Controllers
         // GET: Editor/Details/5
         public ActionResult Details(int id)
         {
-            return View(new EditorViewModel(
-                BusinessManager.Instance.GetEditorById(id)
-            ));
+            Editor editor = BusinessManager.Instance.GetEditorById(id);
+
+            if (editor == null) 
+                throw new HttpException(404, "Éditeur introuvable");
+
+            return View(new EditorViewModel(editor));
         }
 
         // GET: Editor/Create
@@ -63,6 +67,9 @@ namespace VerotMorin.PreciousGames.Web.Controllers
         public ActionResult Edit(int id)
         {
             Editor editor = BusinessManager.Instance.GetEditorById(id);
+            if (editor == null) 
+                throw new HttpException(404, "Éditeur introuvable");
+
             return View(new EditorViewModel(editor));
         }
 
@@ -74,6 +81,9 @@ namespace VerotMorin.PreciousGames.Web.Controllers
                 return View(editorViewModel);
 
             Editor editor = BusinessManager.Instance.GetEditorById(id);
+
+            if (editor == null) 
+                throw new HttpException(404, "Éditeur introuvable");
 
             try
             {
@@ -93,6 +103,10 @@ namespace VerotMorin.PreciousGames.Web.Controllers
         public ActionResult Delete(int id)
         {
             Editor editor = BusinessManager.Instance.GetEditorById(id);
+
+            if (editor == null) 
+                throw new HttpException(404, "Éditeur introuvable");
+
             return View(new EditorViewModel(editor));
         }
 
@@ -100,6 +114,10 @@ namespace VerotMorin.PreciousGames.Web.Controllers
         [HttpPost]
         public ActionResult Delete(int id, EditorViewModel editorViewModel)
         {
+            Editor editor = BusinessManager.Instance.GetEditorById(id);
+            if (editor == null) 
+                throw new HttpException(404, "Éditeur introuvable");
+
             if (!ModelState.IsValid)
                 return View(editorViewModel);
 

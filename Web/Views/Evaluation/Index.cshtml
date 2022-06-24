@@ -31,16 +31,16 @@
 @foreach (EvaluationViewModel evaluation in Model.Evaluations) {
     <tr>
         <th>
-            @Html.DisplayFor(model => model.Evaluations.GetEnumerator().Current.EvaluatorName)
+            @Html.DisplayFor(model => evaluation.EvaluatorName)
         </th>
         <th>
-            @Html.Display(evaluation.Date.ToString(CultureInfo.CurrentUICulture))
+            @Html.DisplayFor(model => evaluation.Date)
         </th>
         <th>
-            @Html.DisplayFor(model => model.Evaluations.GetEnumerator().Current.Game.Name)
+            @Html.DisplayFor(model => evaluation.Game.Name)
         </th>
         <th>
-            @Html.DisplayFor(model => model.Evaluations.GetEnumerator().Current.Mark)
+            @Html.DisplayFor(model => evaluation.Mark)
         </th>
         <td>
             @Html.ActionLink("Éditer", "Edit", new {id = evaluation.Id}) |

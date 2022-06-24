@@ -164,6 +164,21 @@ namespace VerotMorin.PreciousGames.BusinessLayer.Managers
 
         #region Evaluations
 
+        public Evaluation AddEvaluation(Evaluation evaluation)
+        {
+            return _evaluationsQueries.Add(evaluation);
+        }
+
+        public void UpdateEvaluation(Evaluation evaluation)
+        {
+            _evaluationsQueries.Update(evaluation);
+        }
+
+        public void DeleteEvaluation(int id)
+        {
+            _evaluationsQueries.Delete(id);
+        }
+
         public Evaluation GetEvaluationById(int id)
         {
             return _evaluationsQueries.GetById(id);

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using VerotMorin.PreciousGames.BusinessLayer.Managers;
 using VerotMorin.PreciousGames.ModelLayer.Entities;
@@ -31,7 +32,11 @@ namespace VerotMorin.PreciousGames.Web.Controllers
         public ActionResult Details(int id)
         {
             Game game = BusinessManager.Instance.GetGameById(id);
-            return View();
+
+            if (game == null) 
+                throw new HttpException(404, "Jeu introuvable");
+
+            return View(new GameViewModel(game));
         }
 
         // GET: Game/Create
@@ -77,6 +82,9 @@ namespace VerotMorin.PreciousGames.Web.Controllers
         {
             Game game = BusinessManager.Instance.GetGameById(id);
 
+            if (game == null) 
+                throw new HttpException(404, "Jeu introuvable");
+
             return View(new GameEditionViewModel()
             {
                 Editors = GetEditorSelectListItem(),
@@ -93,6 +101,9 @@ namespace VerotMorin.PreciousGames.Web.Controllers
                 return View(gameEditionViewModel);
 
             Game game = BusinessManager.Instance.GetGameById(id);
+
+            if (game == null) 
+                throw new HttpException(404, "Jeu introuvable");
 
             try
             {
@@ -116,6 +127,9 @@ namespace VerotMorin.PreciousGames.Web.Controllers
         public ActionResult Delete(int id)
         {
             Game game = BusinessManager.Instance.GetGameById(id);
+            if (game == null) 
+                throw new HttpException(404, "Jeu introuvable");
+
             return View(new GameViewModelFull(game));
         }
 
@@ -126,6 +140,10 @@ namespace VerotMorin.PreciousGames.Web.Controllers
             if (!ModelState.IsValid)
                 return View(gameViewModel);
 
+            Game game = BusinessManager.Instance.GetGameById(id);
+            if (game == null) 
+                throw new HttpException(404, "Jeu introuvable");
+
             try
             {
                 BusinessManager.Instance.DeleteGame(id);
@@ -135,7 +153,7 @@ namespace VerotMorin.PreciousGames.Web.Controllers
             }
             catch
             {
-                return View();
+                return View(gameViewModel);
             }
         }
 

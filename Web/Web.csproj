@@ -139,12 +139,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\EvaluationModels\EvaluationViewModel.cs" />
     <Compile Include="Models\ExperienceModels\ExperienceViewModel.cs" />
     <Compile Include="Models\ExperienceModels\IndexViewModel.cs" />
     <Compile Include="Models\GameModels\GameCreateViewModel.cs" />
-    <Compile Include="Models\EvaluationModels\EvaluationViewModel.cs" />
     <Compile Include="Models\EvaluationModels\IndexViewModel.cs" />
-    <Compile Include="Models\EvaluationModels\EvaluationViewModel.cs" />
     <Compile Include="Models\GameModels\GameViewModel.cs" />
     <Compile Include="Models\GameModels\GameViewModelFull.cs" />
     <Compile Include="Models\GameModels\IndexViewModel.cs" />
@@ -321,7 +320,6 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\Editor\Edit.cshtml" />
     <Content Include="Views\Editor\Delete.cshtml" />
     <Content Include="Views\Kind\Index.cshtml" />
     <Content Include="Views\Kind\Details.cshtml" />
@@ -330,12 +328,15 @@
     <Content Include="Views\Kind\Delete.cshtml" />
     <Content Include="Views\Game\Create.cshtml" />
     <Content Include="Views\Game\Delete.cshtml" />
-    <Content Include="Views\Game\Details.cshtml" />
     <Content Include="Views\Evaluation\Index.cshtml" />
     <Content Include="Views\Evaluation\Details.cshtml" />
     <Content Include="Views\Game\Edit.cshtml" />
     <Content Include="Views\Experience\Index.cshtml" />
     <Content Include="Views\Evaluation\Create.cshtml" />
+    <Content Include="Views\Evaluation\Edit.cshtml" />
+    <Content Include="Views\Evaluation\Delete.cshtml" />
+    <Content Include="Views\Game\Details.cshtml" />
+    <Content Include="Views\Editor\Edit.cshtml" />
     <None Include="Web.config.template" />
   </ItemGroup>
   <ItemGroup>

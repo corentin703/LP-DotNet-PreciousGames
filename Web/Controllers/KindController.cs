@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using VerotMorin.PreciousGames.BusinessLayer.Managers;
 using VerotMorin.PreciousGames.ModelLayer.Entities;
@@ -26,6 +27,9 @@ namespace VerotMorin.PreciousGames.Web.Controllers
         public ActionResult Details(int id)
         {
             Kind kind = BusinessManager.Instance.GetKindById(id);
+            if (kind == null) 
+                throw new HttpException(404, "Genre introuvable");
+
             return View(new KindViewModel(kind));
         }
 
@@ -62,6 +66,9 @@ namespace VerotMorin.PreciousGames.Web.Controllers
         public ActionResult Edit(int id)
         {
             Kind kind = BusinessManager.Instance.GetKindById(id);
+            if (kind == null) 
+                throw new HttpException(404, "Genre introuvable");
+
             return View(new KindViewModel(kind));
         }
 
@@ -73,6 +80,8 @@ namespace VerotMorin.PreciousGames.Web.Controllers
                 return View(kindViewModel);
 
             Kind kind = BusinessManager.Instance.GetKindById(id);
+            if (kind == null) 
+                throw new HttpException(404, "Genre introuvable");
 
             try
             {
@@ -92,6 +101,9 @@ namespace VerotMorin.PreciousGames.Web.Controllers
         public ActionResult Delete(int id)
         {
             Kind kind = BusinessManager.Instance.GetKindById(id);
+            if (kind == null) 
+                throw new HttpException(404, "Genre introuvable");
+
             return View(new KindViewModel(kind));
         }
 
@@ -99,6 +111,10 @@ namespace VerotMorin.PreciousGames.Web.Controllers
         [HttpPost]
         public ActionResult Delete(int id, KindViewModel kindViewModel)
         {
+            Kind kind = BusinessManager.Instance.GetKindById(id);
+            if (kind == null) 
+                throw new HttpException(404, "Genre introuvable");
+
             if (!ModelState.IsValid)
                 return View(kindViewModel);
 
