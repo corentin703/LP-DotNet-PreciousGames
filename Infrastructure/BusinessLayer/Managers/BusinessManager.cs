@@ -200,6 +200,21 @@ namespace VerotMorin.PreciousGames.BusinessLayer.Managers
         {
             return _experiencesQueries.Add(experience);
         }
+
+        public Experience GetExperienceById(int id)
+        {
+            return _experiencesQueries.GetById(id);
+        }
+
+        public void UpdateExperience(Experience experience)
+        {
+            _experiencesQueries.Update(experience);
+        }
+
+        public void DeleteExperience(int id)
+        {
+            _experiencesQueries.Delete(id);
+        }
         #endregion
 
         public void Dispose()

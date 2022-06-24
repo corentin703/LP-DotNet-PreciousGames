@@ -28,7 +28,6 @@ namespace VerotMorin.PreciousGames.Web.Models.ExperienceModels
         public int GameId { get; set; }
 
         [Display(Name = "Game")]
-        [Required]
         public GameViewModel Game { get; set; }
 
 

@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using VerotMorin.PreciousGames.BusinessLayer.Managers;
 using VerotMorin.PreciousGames.ModelLayer.Entities;
 using VerotMorin.PreciousGames.Web.Models.ExperienceModels;
+using VerotMorin.PreciousGames.Web.Models.GameModels;
 
 namespace VerotMorin.PreciousGames.Web.Controllers
 {
@@ -20,7 +21,7 @@ namespace VerotMorin.PreciousGames.Web.Controllers
 
             IEnumerable<Experience> experiences = game.Experiences;
 
-            return View(new IndexViewModel()
+            return View(new Models.ExperienceModels.IndexViewModel()
             {
                 Experiences = experiences.Select(experience => new ExperienceViewModel(experience)).ToList(),
                 ExperienceCount = experiences.Count(),
@@ -28,21 +29,40 @@ namespace VerotMorin.PreciousGames.Web.Controllers
         }
 
         // GET: Experience/Details/5
-        public ActionResult Details(int gameId, int id)
+        public ActionResult Details(int id)
         {
-            return View();
+            Experience experience = BusinessManager.Instance.GetExperienceById(id);
+
+            if (experience == null)
+                throw new HttpException(404, "Évaluation introuvable");
+
+            return View(new ExperienceViewModel(experience));
         }
 
         // GET: Experience/Create
         public ActionResult Create(int gameId)
         {
-            return View();
+            Game game = BusinessManager.Instance.GetGameById(gameId);
+
+            if (game == null)
+                throw new HttpException(404, "Jeu introuvable");
+
+            return View(new ExperienceViewModel()
+            {
+                GameId = gameId,
+                Game = new GameViewModel(game),
+            });
         }
 
         // POST: Experience/Create
         [HttpPost]
         public ActionResult Create(int gameId, ExperienceViewModel experienceViewModel)
         {
+
+            Game game = BusinessManager.Instance.GetGameById(gameId);
+
+            if (game == null)
+                throw new HttpException(404, "Jeu introuvable");
             // faire le isvalid
             if (!ModelState.IsValid)
                 return View(experienceViewModel); 
@@ -65,7 +85,6 @@ namespace VerotMorin.PreciousGames.Web.Controllers
             }
             catch
             {
-                System.Diagnostics.Debug.WriteLine("erreur");
                 return View(experienceViewModel);
             }
         }
@@ -73,44 +92,79 @@ namespace VerotMorin.PreciousGames.Web.Controllers
         // GET: Experience/Edit/5
         public ActionResult Edit(int gameId, int id)
         {
-            return View();
+            Experience experience = BusinessManager.Instance.GetExperienceById(id);
+
+            if (experience == null)
+                throw new HttpException(404, "Évaluation introuvable");
+
+            return View(new ExperienceViewModel(experience));
         }
 
         // POST: Experience/Edit/5
         [HttpPost]
-        public ActionResult Edit(int gameId, int id, FormCollection collection)
+        public ActionResult Edit(int gameId, int id, ExperienceViewModel experienceViewModel)
         {
+            Game game = BusinessManager.Instance.GetGameById(gameId);
+
+            if (game == null)
+                throw new HttpException(404, "Jeu introuvable");
+
+            experienceViewModel.Game = new GameViewModel(game);
+
+            Experience experience = BusinessManager.Instance.GetExperienceById(id);
+
+            if (experience == null)
+                throw new HttpException(404, "Évaluation introuvable");
+
+            if (!ModelState.IsValid)
+                return View(experienceViewModel);
+
             try
             {
-                // TODO: Add update logic here
+                experience.Percentage = experienceViewModel.Percentage;
+                experience.PlayedTime = experienceViewModel.PlayedTime;
+                experience.Player = experienceViewModel.Player;
+
+                BusinessManager.Instance.UpdateExperience(experience);
+                BusinessManager.Instance.SaveChanges();
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(experienceViewModel);
             }
         }
 
         // GET: Experience/Delete/5
-        public ActionResult Delete(int gameId, int id)
+        public ActionResult Delete(int id)
         {
-            return View();
+            Experience experience = BusinessManager.Instance.GetExperienceById(id);
+            if (experience == null)
+                throw new HttpException(404, "Évaluation introuvable");
+
+            return View(new ExperienceViewModel(experience));
         }
 
         // POST: Experience/Delete/5
         [HttpPost]
-        public ActionResult Delete(int gameId, int id, FormCollection collection)
+        public ActionResult Delete(int gameId, int id)
         {
+            Game game = BusinessManager.Instance.GetGameById(gameId);
+
+            if (game == null)
+                throw new HttpException(404, "Jeu introuvable");
+
             try
             {
-                // TODO: Add delete logic here
+                BusinessManager.Instance.DeleteExperience(id);
+                BusinessManager.Instance.SaveChanges();
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return Delete(id);
             }
         }
     }
