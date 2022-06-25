@@ -11,6 +11,7 @@ namespace VerotMorin.PreciousGames.Web.Models.EvaluationModels
         public int Id { get; set; }
 
         [Display(Name = "Date")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Required]
         public DateTime Date { get; set; }
 

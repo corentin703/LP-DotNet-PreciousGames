@@ -6,9 +6,7 @@ namespace VerotMorin.PreciousGames.Web.Models.HomeModels
 {
     public class IndexViewModel
     {
-        public IEnumerable<GameViewModel> GamesTopRated { get; set; }
+        public IEnumerable<GameViewModelFull> GamesTopRated { get; set; }
         public IEnumerable<EvaluationViewModel> LastEvaluations{ get; set; }
-        
-        
     }
 }

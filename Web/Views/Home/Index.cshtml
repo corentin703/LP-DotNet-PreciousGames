@@ -12,7 +12,7 @@
 <br />
 
 <h3>Le top des jeux : </h3>
-<table>
+<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.GamesTopRated.GetEnumerator().Current.Name)
@@ -45,10 +45,10 @@
                 @Html.DisplayFor(modelItem => item.ReleaseDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.KindId)
+                @Html.DisplayFor(modelItem => item.Kind.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.EditorId)
+                @Html.DisplayFor(modelItem => item.Editor.Name)
             </td>
         </tr>
     }
@@ -60,7 +60,7 @@
 
 <h3>Les derniers avis :</h3>
 
-<table>
+<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.LastEvaluations.GetEnumerator().Current.Game.Name)

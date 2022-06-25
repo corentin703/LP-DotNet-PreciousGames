@@ -13,7 +13,7 @@ namespace VerotMorin.PreciousGames.Web.Controllers
         public ActionResult Index()
         {
             IEnumerable<Game> gamesTopRated = BusinessManager.Instance.GetBestRatedGames(5);
-            IEnumerable<GameViewModel> gamesTopRatedViewModels = gamesTopRated.Select(game => new GameViewModel(game));
+            IEnumerable<GameViewModelFull> gamesTopRatedViewModels = gamesTopRated.Select(game => new GameViewModelFull(game));
 
             IEnumerable<Evaluation> lastEvaluations = BusinessManager.Instance.GetAllEvaluationOrderedByDate(5);
             IEnumerable<EvaluationViewModel> lastEvaluationsViewModels = lastEvaluations.Select(evaluation => new EvaluationViewModel(evaluation));
@@ -23,20 +23,6 @@ namespace VerotMorin.PreciousGames.Web.Controllers
                 LastEvaluations = lastEvaluationsViewModels,
                 GamesTopRated = gamesTopRatedViewModels,
             });
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
         }
     }
 }

@@ -12,20 +12,27 @@ namespace VerotMorin.PreciousGames.Web.Controllers
     public class GameController : Controller
     {
         // GET: Game
-        public ActionResult Index(string searchString = null)
+        public ActionResult Index()
         {
-            List<Game> games = string.IsNullOrEmpty(searchString)
-                ? BusinessManager.Instance.GetAllGamesOrderedByName()
-                : BusinessManager.Instance.SearchGames(searchString);
-
-            IEnumerable<GameViewModel> kindViewModels = games.Select(game => new GameViewModel(game));
+            List<Game> games = BusinessManager.Instance.GetAllGamesOrderedByName();
+            IEnumerable<GameViewModelFull> gameViewModels = games.Select(game => new GameViewModelFull(game));
 
             return View(new IndexViewModel()
             {
-                Games = games.Select(game => new GameViewModelFull(game)),
+                Games = gameViewModels,
                 GameCount = BusinessManager.Instance.CountGames(),
-                SearchString = searchString,
             });
+        }
+
+        public ActionResult Search(string search)
+        {
+            List<Game> games = string.IsNullOrWhiteSpace(search)
+                ? BusinessManager.Instance.GetAllGamesOrderedByName() 
+                : BusinessManager.Instance.SearchGames(search);
+
+            IEnumerable<GameViewModelFull> gameViewModels = games.Select(game => new GameViewModelFull(game));
+
+            return PartialView("_List", gameViewModels);
         }
 
         // GET: Game/Details/5

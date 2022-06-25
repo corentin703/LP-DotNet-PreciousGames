@@ -339,6 +339,7 @@
     <Content Include="Views\Experience\Details.cshtml" />
     <Content Include="Views\Experience\Edit.cshtml" />
     <Content Include="Views\Experience\Delete.cshtml" />
+    <Content Include="Views\Game\_List.cshtml" />
     <None Include="Web.config.template" />
   </ItemGroup>
   <ItemGroup>

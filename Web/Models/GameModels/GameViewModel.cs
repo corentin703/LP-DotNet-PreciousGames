@@ -19,6 +19,7 @@ namespace VerotMorin.PreciousGames.Web.Models.GameModels
         public string Description { get; set; }
 
         [Display(Name = "Date de sortie")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Required]
         public DateTime ReleaseDate { get; set; }
 
